@@ -1,16 +1,5 @@
 INDEX VERSION 1.126+C:\Users\s-bbiggers\Documents\GitHub\ExcelWork\Ben'sCode\.metadata\.plugins\org.eclipse.jdt.core
-4108727661.index
-3133528496.index
-305854171.index
-163172794.index
-1995173708.index
-30765161.index
-3974580528.index
-3443788355.index
-1498219845.index
-4155206848.index
-1299022128.index
-3065916431.index
-4041092966.index
-1115467115.index
-1697886153.index
+3702260263.index
+1166809567.index
+958520514.index
+1520473831.index
