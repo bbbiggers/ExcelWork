@@ -1,14 +1,23 @@
 package twoDArrays;
 
+import java.util.Scanner;
+
 public class newarrays {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		String[][] words = new String[4][3];
+public static void main(String[] args) {
+	Scanner userInput = new Scanner( System.in );
 		
-		int a = words.length;
-		System.out.println(a);
-	}
+		
+	int[][] myArray = {     {0, 0, 0, 0, 0, 0, 0 },
+							{0, 0, 0, 0, 0, 0, 0 },
+							{0, 0, 0, 0, 0, 0, 0 },
+							{0, 0, 0, 0, 0, 0, 0 },
+							{0, 0, 0, 0, 0, 0, 0 }		};
+
+
+		
+}
 
 }
+//rows
+//column
