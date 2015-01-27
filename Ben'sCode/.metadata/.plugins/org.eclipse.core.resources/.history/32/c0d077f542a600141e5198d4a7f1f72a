@@ -1,0 +1,16 @@
+package Spread;
+
+import java.util.Scanner;
+
+public class ExcelSheet {
+
+	public static void main(String[] args) {
+		int[][] Sheet = new int[10][7];
+		Scanner Imput = new Scanner(System.in);
+		
+		System.out.println("What would you like to do?");	
+		
+		
+		
+	}
+}
