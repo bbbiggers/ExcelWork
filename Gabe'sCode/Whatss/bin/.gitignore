@@ -2,10 +2,13 @@
 /DragonStuff
 /Elevens
 /FrogClass
+<<<<<<< HEAD
 /Marbles.class
 /Newsuffs.class
 /NumbersWarmUp.class
 /Stopsignmethods.class
+=======
+>>>>>>> 499449fe5dcbcfc46b00e36deea223ee3dc3c440
 /TestArea.class
 /TestArea2.class
 /Thing.class
@@ -41,4 +44,11 @@
 /DrawingPanel$ReverseColorMap$ColorRecord.class
 /DrawingPanel$ReverseColorMap.class
 /DrawingPanel.class
+<<<<<<< HEAD
 /twoDArrays
+=======
+/Marbles.class
+/Newsuffs.class
+/NumbersWarmUp.class
+/Stopsignmethods.class
+>>>>>>> 499449fe5dcbcfc46b00e36deea223ee3dc3c440

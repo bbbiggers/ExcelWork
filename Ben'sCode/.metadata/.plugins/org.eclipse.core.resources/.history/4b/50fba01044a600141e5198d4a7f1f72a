@@ -1,0 +1,24 @@
+package Spread;
+
+import java.util.Scanner;
+
+public class ExcelSheet {
+
+	public static void main(String[] args) {
+		int[][] Sheet = new int[10][7];
+		Scanner Imput = new Scanner(System.in);
+		
+		String Exit = "NO"; 
+		while(!Exit.equals("exit")){
+		System.out.println("enter a command:");
+		Exit = Imput.nextLine();
+		if() {
+			
+		}
+		
+		}
+	}
+	public void printSheet() {
+		
+	}
+}
