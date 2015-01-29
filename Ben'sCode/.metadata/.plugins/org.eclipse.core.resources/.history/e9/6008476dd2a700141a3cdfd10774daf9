@@ -41,22 +41,19 @@ public static String[][] Sheet = new String[10][7];
 		else if(Selc == 1) {
 		System.out.println("            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |");	
 		}
-		
 		}
 	
 	public static void Cells(int N) {
-		String Liner = "";
-		for(int j = 0; j < 7; j++) {
-			Liner = Liner+Sheet[N][j]+"|"; 
-		}
+		String Line = "";
 		if(N == 10) {
 			System.out.print("     10     |");
-			System.out.print(Liner+"\n");
 		}
 		else {
-			System.out.print("     "+N+"      |"+Liner+"\n");
+			for(int j = 0; j < 7; j++) {
+				Line = Line+Sheet[N][j]; 
+			}
+			System.out.print("     "+N+"      |"+Line+"\n");
 		}
-		
 		Line(0);
 	}
 	public static void Fix() {

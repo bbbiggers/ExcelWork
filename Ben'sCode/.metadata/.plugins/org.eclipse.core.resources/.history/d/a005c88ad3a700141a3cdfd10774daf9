@@ -51,12 +51,13 @@ public static String[][] Sheet = new String[10][7];
 		}
 		if(N == 10) {
 			System.out.print("     10     |");
-			System.out.print(Liner+"\n");
 		}
 		else {
 			System.out.print("     "+N+"      |"+Liner+"\n");
 		}
-		
+		if(N == 10) {
+			System.out.print(Liner+"\n");
+		}
 		Line(0);
 	}
 	public static void Fix() {
