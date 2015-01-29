@@ -13,12 +13,9 @@ public static void main(String[] args) {
 							{1, 2, 3}	};
 
 
-	System.out.println(myArray.length);	
+	System.out.println(myArray[2].length);	
 }
 
 }
 //rows
 //column
-
-//   .length is rows
-//  myArray[0].length is columns
