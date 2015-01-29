@@ -76,7 +76,7 @@ public static String[][] Sheet = new String[10][7];
 					int k = Sheet[i][j].length();
 					k = 12-k;
 					for(int o = 0; o < k; o++) {
-						Sheet[i][j] = Sheet[i][j]+" ";
+						Sheet[i][j] = " "+Sheet[i][j];
 					}
 				}
 				
