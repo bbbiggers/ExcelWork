@@ -2,14 +2,15 @@ package Spread;
 
 import java.util.Scanner;
 
-public class TextExcel extends Spreadsheet {
-	private static String[][] Sheet = new String[10][7];
+public class TextExcel {
+	
 
 	public static void main(String[] args) {
+		String[][] Sheet = new String[10][7];
 		Scanner Imput = new Scanner(System.in);
+		Spreadsheet Shet = new Spreadsheet(Sheet);
 		
-		
-		clearall();
+		Shet.clearall();
 		String Exit = "NO"; 
 		while(!Exit.equals("exit")){
 		System.out.println("enter a command:");
@@ -17,10 +18,11 @@ public class TextExcel extends Spreadsheet {
 		if(Exit.equals("print")) {
 			Sheet[2][3] = "92";
 			Sheet[1][4] = "92";
-			printSheet();
+			Shet.printSheet();
 		}
 		else if(Exit.equals("clear all")) {
-			clearall();
+			Shet.clearall();
 		}
 		}
 	}
+}

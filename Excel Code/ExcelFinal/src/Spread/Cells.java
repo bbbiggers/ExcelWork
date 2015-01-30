@@ -1,7 +1,14 @@
 package Spread;
 
 public class Cells {
-	public static void Cells(int N) {
+	private int N;
+	private static String[][] Sheet;
+	public Cells(String[][] Sheat, int A) {
+		Sheet = Sheat;
+		N = A;
+	}
+	
+	public static void Cel(int N) {
 		String Liner = "";
 		
 		if(N == 10) {
@@ -18,6 +25,6 @@ public class Cells {
 			System.out.print("     "+N+"      |"+Liner+"\n");
 		}
 		
-		Line(0);
+		
 	}
 }

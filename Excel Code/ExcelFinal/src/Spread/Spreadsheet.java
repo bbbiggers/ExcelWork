@@ -1,17 +1,18 @@
 package Spread;
 
 public class Spreadsheet {
-	
-	public Spreadsheet(String[][] Sheet){
-		
+	private static String[][] Sheet;
+	Spreadsheet(String[][] Sheat) {
+		Sheet = Sheat;
 	}
-	
 	public static void printSheet() {
 		FixIt();
 		Line(1);
 		Line(0);
+		Cells Gabe = new Cells(Sheet, 1);
 		for(int i = 1; i < 11; i++) {
-			Cells(i);
+			Gabe.Cel(i);
+			Line(0);
 		}
 	}
 	public static void clearall() {
