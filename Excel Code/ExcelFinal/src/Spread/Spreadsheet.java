@@ -2,11 +2,16 @@ package Spread;
 
 public class Spreadsheet {
 	private static String[][] Sheet;
-	private static String[][] MathSheet;
+	private static String[][] ExtraSheet;
+	private static double[][] MathSheet = new double[10][7];
 	Spreadsheet(String[][] Sheat) {
 		Sheet = Sheat;
-		MathSheet = Sheat;
-		
+		ExtraSheet = Sheat;
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 7; j++) {
+				MathSheet[i][j] = 0;
+			}
+		}
 	}
 	public static void printSheet() {
 		FixIt();
@@ -18,26 +23,42 @@ public class Spreadsheet {
 			Line(0);
 		}
 	}
+	
+	public static void Decipher(String Input) {
+		if(Input.substring(3, 4).equals("=")) { // C1 = 12.1
+			int fSpc = Input.indexOf(" ");
+			int Eqa = Input.indexOf("=");
+			int X = AtoB(Input.substring(0, 1));
+			int Y = Integer.parseInt(Input.substring(1, 2));
+			double inf = Double.parseDouble(Input.substring(Eqa+2));
+			String in = Input.substring(Eqa+2);
+			add(Y, X, in, inf);
+		}
+		else if(true) {
+			
+		}
+		
+	}
 	public static void clear(int X, int Y) {
 		Sheet[X][Y] = "            ";
-		MathSheet[X][Y] = "";
+		ExtraSheet[X][Y] = "";
+		MathSheet[X][Y] = 0;
 	}
-	public static void add(int X, int Y, String info) {
+	public static void add(int X, int Y, String info, double GoodMath) {
 		Sheet[X][Y] = info;
-		MathSheet[X][Y] = info;
+		ExtraSheet[X][Y] = info;
+		MathSheet[X][Y] = GoodMath;
 		FixIt();
 	}
 	public static void clearall() {
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 7; j++) {
-				Sheet[i][j] = "            "; 
+				Sheet[i][j] = "            ";
+				ExtraSheet[i][j] = "";
+				MathSheet[i][j] = 0;
 			}
 		}
-		for(int i = 0; i < 10; i++) {
-			for(int j = 0; j < 7; j++) {
-				MathSheet[i][j] = "";
-			}
-		}
+		
 	}
 	public static void Line(int Selc) {
 		if(Selc == 0) {
@@ -48,30 +69,30 @@ public class Spreadsheet {
 		}
 		
 		}
-	public int AtoB(String Let) {
+	public static int AtoB(String Let) {
 		if(Let.equals("A")) {
-			return 1;
+			return 0;
 		}
 		else if(Let.equals("B")) {
-			return 2;
+			return 1;
 		}
 		else if(Let.equals("C")) {
-			return 3;
+			return 2;
 		}
 		else if(Let.equals("D")) {
-			return 4;
+			return 3;
 		}
 		else if(Let.equals("E")) {
-			return 5;
+			return 4;
 		}
 		else if(Let.equals("F")) {
-			return 6;
+			return 5;
 		}
 		else if(Let.equals("G")) {
-			return 7;
+			return 6;
 		}
 		else {
-			return 8;
+			return 7;
 		}
 		
 		

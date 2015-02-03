@@ -6,6 +6,7 @@ public class TextExcel {
 	
 
 	public static void main(String[] args) {
+		int helper = 0;
 		String[][] Sheet = new String[10][7];
 	
 		Scanner Imput = new Scanner(System.in);
@@ -24,6 +25,23 @@ public class TextExcel {
 		}
 		else if(Exit.equals("help")||Exit.equals("Help")) {
 			
+			if(helper == 0) {
+			System.out.println("To Clear All type\"Clear All\"");
+			System.out.println("To Add type\"Add\"");
+			System.out.println("To Clear type \"Clear\"and the location \"A1\"");
+			System.out.println("For more help type \"Help\"");
+			}
+			else if(helper == 1) {
+				System.out.println("**!EXTRA HELP!**");
+				System.out.println("Just type\"Clear All\" To CLEAR!");
+				System.out.println("To Add type\"Add\" <--- Add things here");
+				System.out.println("To Clear type \"Clear\"and the location \"A1\"");
+				System.out.println("For more help type \"Help\"");
+			}
+			else if(helper > 1) {
+				System.out.println("Sorry,\nBut the General Manager\nhas Anounced that we are\nClosing Down!");
+			}
+			helper++;
 		}
 		else if(Exit.length() > 5){
 			if((Exit.substring(0, 5)).equals("clear") || (Exit.substring(0, 5)).equals("Clear")) {
@@ -40,30 +58,14 @@ public class TextExcel {
 			}
 			}
 			else {
-				System.out.println("That is Bad.");
+				Shet.Decipher(Exit);
 			}
 		}
-		/*
-		else if(Exit.length() < 8){
-			
-				String A = Exit.substring(5, 6);
-				String B = Exit.substring(6);
-				String Data = Exit.substring(7);
-				int a = 0;
-				int b = Integer.parseInt(B);
-				a = Shet.AtoB(A);
-				if(b < 11 && a < 8 && a > 0 && b > 0) {
-				Shet.add(a, b, Data);
-				}
-				else {
-					System.out.println("Not a valid point!");
-				}
-		}
-		*/
 		else if(Exit.equals("Exit") || Exit.equals("Exit")) {
 			Exit = "exit";
 		}
 		else {
+			
 			//System.out.println("That is Bad.");
 		}
 		
