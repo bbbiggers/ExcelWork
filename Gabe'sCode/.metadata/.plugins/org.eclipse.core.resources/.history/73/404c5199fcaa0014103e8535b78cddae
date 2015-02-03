@@ -26,7 +26,6 @@ public class TextExcel {
 			String B = Exit.substring(7);
 			System.out.println(A+" "+B);
 			
-			
 		}
 		}
 	}
