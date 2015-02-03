@@ -2,8 +2,11 @@ package Spread;
 
 public class Spreadsheet {
 	private static String[][] Sheet;
+	private static String[][] MathSheet;
 	Spreadsheet(String[][] Sheat) {
 		Sheet = Sheat;
+		MathSheet = Sheat;
+		
 	}
 	public static void printSheet() {
 		FixIt();
@@ -15,10 +18,24 @@ public class Spreadsheet {
 			Line(0);
 		}
 	}
+	public static void clear(int X, int Y) {
+		Sheet[X][Y] = "            ";
+		MathSheet[X][Y] = "";
+	}
+	public static void add(int X, int Y, String info) {
+		Sheet[X][Y] = info;
+		MathSheet[X][Y] = info;
+		FixIt();
+	}
 	public static void clearall() {
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 7; j++) {
 				Sheet[i][j] = "            "; 
+			}
+		}
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 7; j++) {
+				MathSheet[i][j] = "";
 			}
 		}
 	}
@@ -31,6 +48,34 @@ public class Spreadsheet {
 		}
 		
 		}
+	public int AtoB(String Let) {
+		if(Let.equals("A")) {
+			return 1;
+		}
+		else if(Let.equals("B")) {
+			return 2;
+		}
+		else if(Let.equals("C")) {
+			return 3;
+		}
+		else if(Let.equals("D")) {
+			return 4;
+		}
+		else if(Let.equals("E")) {
+			return 5;
+		}
+		else if(Let.equals("F")) {
+			return 6;
+		}
+		else if(Let.equals("G")) {
+			return 7;
+		}
+		else {
+			return 8;
+		}
+		
+		
+	}
 	public static void FixIt() {
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 7; j++) {
@@ -47,4 +92,5 @@ public class Spreadsheet {
 				
 			}
 		}
-}}
+	}
+	}
