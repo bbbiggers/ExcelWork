@@ -61,6 +61,29 @@ public class TextExcel {
 				Shet.Decipher(Exit);
 			}
 		}
+<<<<<<< HEAD
+=======
+		/*
+		else if(Exit.length() < 8){
+			
+<<<<<<< HEAD
+			
+=======
+				String A = Exit.substring(5, 6);
+				String B = Exit.substring(6);
+				String Data = Exit.substring(7);
+				int a = 0;
+				int b = Integer.parseInt(B);
+				a = Shet.AtoB(A);
+				if(b < 11 && a < 8 && a > 0 && b > 0) {
+				Shet.add(a, b, Data);
+				}
+				else {
+					System.out.println("Not a valid point!");
+				}
+		}
+		*/
+>>>>>>> origin/master
 		else if(Exit.equals("Exit") || Exit.equals("Exit")) {
 			Exit = "exit";
 		}
@@ -69,6 +92,7 @@ public class TextExcel {
 			//System.out.println("That is Bad.");
 		}
 		
+>>>>>>> origin/master
 		}
 		}
 	}
