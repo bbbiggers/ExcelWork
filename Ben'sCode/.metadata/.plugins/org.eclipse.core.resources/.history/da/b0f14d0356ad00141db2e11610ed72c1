@@ -26,7 +26,7 @@ public class Spreadsheet {
 	
 	public static void Decipher(String Input) {
 		boolean Text = false;
-		if(Input.indexOf("\"") == 0) {
+		if(Input.indexOf("\"") != 0) {
 			Text = true;
 		}
 		if(Input.substring(3, 4).equals("=") && Text) {
