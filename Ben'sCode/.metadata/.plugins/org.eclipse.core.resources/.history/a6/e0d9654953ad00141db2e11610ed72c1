@@ -25,11 +25,7 @@ public class Spreadsheet {
 	}
 	
 	public static void Decipher(String Input) {
-		boolean Text = false;
-		if(Input.indexOf("\"") != 0) {
-			Text = true;
-		}
-		if(Input.substring(3, 4).equals("=") && Text) {
+		if(Input.substring(3, 4).equals("=") && Input.indexOf("\"")) {
 			
 		}
 		if(Input.substring(3, 4).equals("=")) { // C1 = 12.1

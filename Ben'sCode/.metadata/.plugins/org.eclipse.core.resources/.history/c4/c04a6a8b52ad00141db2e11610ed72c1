@@ -61,7 +61,9 @@ public class TextExcel {
 				Shet.Decipher(Exit);
 			}
 		}
-/*
+<<<<<<< HEAD
+=======
+		/*
 		else if(Exit.length() < 8){
 			
 <<<<<<< HEAD
@@ -81,6 +83,7 @@ public class TextExcel {
 				}
 		}
 		*/
+>>>>>>> origin/master
 		else if(Exit.equals("Exit") || Exit.equals("Exit")) {
 			Exit = "exit";
 		}
@@ -88,7 +91,8 @@ public class TextExcel {
 			
 			//System.out.println("That is Bad.");
 		}
-
+		
+>>>>>>> origin/master
 		}
 		}
 	}
