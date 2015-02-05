@@ -39,7 +39,6 @@ public class Spreadsheet {
 		else if(Input.substring(3, 4).equals("=")) { // C1 = 12.1
 			int Eqa = Input.indexOf("=");
 			int X = AtoB(Input.substring(0, 1));
-			//FIX HERE ADD SPACE CHECK
 			int Y = Integer.parseInt(Input.substring(1, 2));
 			double inf = Double.parseDouble(Input.substring(Eqa+2));
 			String in = Input.substring(Eqa+2);
