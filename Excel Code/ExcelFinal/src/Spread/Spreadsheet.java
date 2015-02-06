@@ -24,32 +24,81 @@ public class Spreadsheet {
 		}
 	}
 	
+	public static String printCell(int x, int y) {
+		return Sheet[x][y];
+	}
 	public static void Decipher(String Input) {
 		boolean Text = false;
-		if(Input.indexOf("\"") == 0) {
+		boolean Para = false;
+		if(Input.contains("\"")) {
+			System.out.println("Screw");
 			Text = true;
 		}
-		if(Input.substring(3, 4).equals("=") && Text) {
-			int X = AtoB(Input.substring(0, 1));
-			int Y = Integer.parseInt(Input.substring(1, 2));
-			int qout = Input.indexOf("\"");
-			int quot2 = Input.indexOf("\""+1);
-			String word = Input.substring(qout,quot2);
+		if(Input.contains("(") && Input.contains(")")) {
+			Para = true;
 		}
-		else if(Input.substring(3, 4).equals("=")) { // C1 = 12.1
+		if(Input.length() <= 3) {
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 9;
+			}
+			printCell(X, Y);
+		}
+		else if(Para) {
+			System.out.println("Paras");
+		}
+		else if(Input.substring(4, 5).equals("=") && Text) {
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 9;
+			}
+			int qout = Input.indexOf("\"");
+			int quot2 = Input.indexOf("\"", qout+1);
+			String word = Input.substring(qout,quot2);
+			System.out.println(X+" " +Y);
+			add(X, Y, word, 0);
+		}
+		else if(Input.substring(3, 4).equals("=") && Text) {
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 9;
+			}
+			int qout = Input.indexOf("\"");
+			int quot2 = Input.indexOf("\"", qout+1);
+			String word = Input.substring(qout+1,quot2);
+			System.out.println(X+" " +Y);
+			add(X, Y, word, 0);
+		}
+		else if(Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) { // C1 = 12.1
 			int Eqa = Input.indexOf("=");
 			int X = AtoB(Input.substring(0, 1));
-			//FIX HERE ADD SPACE CHECK
-			int Y = Integer.parseInt(Input.substring(1, 2));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+			}
 			double inf = Double.parseDouble(Input.substring(Eqa+2));
 			String in = Input.substring(Eqa+2);
+			System.out.println("PICK EM");
 			System.out.println(X+" " +Y);
 			add(Y, X, in, inf);
 		}
 		else if(true) {
-			
+			System.out.println("TAKE A POO");
 		}
-		
 	}
 	public static void clear(int X, int Y) {
 		Sheet[X][Y] = "            ";
