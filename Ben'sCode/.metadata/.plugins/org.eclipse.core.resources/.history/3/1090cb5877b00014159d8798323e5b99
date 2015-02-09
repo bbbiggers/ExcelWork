@@ -44,7 +44,7 @@ public class Spreadsheet {
 				Y = Integer.parseInt(Input.substring(1, 2));
 			}
 			else {
-				Y = 10;
+				Y = 9;
 			}
 			printCell(X, Y);
 		}
@@ -58,13 +58,12 @@ public class Spreadsheet {
 				Y = Integer.parseInt(Input.substring(1, 2));
 			}
 			else {
-				Y = 10;
+				Y = 9;
 			}
 			int qout = Input.indexOf("\"");
 			int quot2 = Input.indexOf("\"", qout+1);
 			String word = Input.substring(qout,quot2);
 			System.out.println(X+" " +Y);
-			System.out.println(Input.indexOf(" "));
 			add(X, Y, word, 0);
 		}
 		else if(Input.substring(3, 4).equals("=") && Text) {
@@ -74,7 +73,7 @@ public class Spreadsheet {
 				Y = Integer.parseInt(Input.substring(1, 2));
 			}
 			else {
-				Y = 10;
+				Y = 9;
 			}
 			int qout = Input.indexOf("\"");
 			int quot2 = Input.indexOf("\"", qout+1);
@@ -89,15 +88,14 @@ public class Spreadsheet {
 			if(Input.indexOf(" ") == 2) {
 				Y = Integer.parseInt(Input.substring(1, 2));
 			}
-			else if(Input.indexOf(" ") == 3) {
+			else {
 				Y = 10;
 			}
 			double inf = Double.parseDouble(Input.substring(Eqa+2));
 			String in = Input.substring(Eqa+2);
 			System.out.println("PICK EM");
 			System.out.println(X+" " +Y);
-			System.out.println(Input.indexOf(" "));
-			add(Y, X, in, inf);
+			add(X, Y, in, inf);
 		}
 		else if(true) {
 			System.out.println("TAKE A POO");
@@ -109,12 +107,6 @@ public class Spreadsheet {
 		MathSheet[X][Y] = 0;
 	}
 	public static void add(int X, int Y, String info, double GoodMath) {
-		if(X == 10) {
-			X = 9;
-		}
-		if(Y == 10) {
-			Y = 9;
-		}
 		Sheet[X][Y] = info;
 		ExtraSheet[X][Y] = info;
 		MathSheet[X][Y] = GoodMath;

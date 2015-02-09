@@ -58,7 +58,7 @@ public class Spreadsheet {
 				Y = Integer.parseInt(Input.substring(1, 2));
 			}
 			else {
-				Y = 10;
+				Y = 9;
 			}
 			int qout = Input.indexOf("\"");
 			int quot2 = Input.indexOf("\"", qout+1);

@@ -18,7 +18,7 @@ public class Cells {
 			}
 			System.out.print("     10     |"+Liner+"\n");
 		}
-		else if(N <=9 && N != 0) {
+		else {
 			for(int j = 0; j < 7; j++) {
 				Liner = Liner+Sheet[N][j]+"|"; 
 			}
