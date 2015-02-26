@@ -1,0 +1,23 @@
+package Warmups;
+
+public class factorialz {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+	int a = 5;
+	
+	
+	System.out.println(factorial(a));
+	
+	}
+public static int factorial(int a){
+int answer = 1;
+for(int i = a;i>0;i--){
+	answer = answer*i;
+}
+return answer;
+}
+	
+}

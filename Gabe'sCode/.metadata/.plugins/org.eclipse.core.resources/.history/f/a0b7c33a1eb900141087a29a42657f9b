@@ -1,0 +1,25 @@
+package Warmups;
+
+public class recursionstringreplace {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+String s = "ayyylmao";
+farts(s);
+	}
+public static String farts(String s){
+int count = s.length();
+if (count == 0){
+	return s;
+}else{
+	if(s.substring(count-1,count).contains("y")||s.substring(count-1,count).contains("Y")){
+		s.substring(count-1,count).equals("x");
+		count--;
+		return farts(s);
+	}else{
+		return farts(s);
+	}
+}
+	
+}
+}

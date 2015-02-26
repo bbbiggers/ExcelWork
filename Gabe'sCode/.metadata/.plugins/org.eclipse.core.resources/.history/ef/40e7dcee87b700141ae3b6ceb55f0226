@@ -1,0 +1,17 @@
+package Warmups;
+
+public class recusion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+String fart = "cats";
+dog(fart);
+	}
+public static void dog(String cat){
+	int n = cat.length();
+	if(n==0){
+		System.out.println("");
+	}
+	System.out.print(cat.substring(n-1,n));
+}
+}

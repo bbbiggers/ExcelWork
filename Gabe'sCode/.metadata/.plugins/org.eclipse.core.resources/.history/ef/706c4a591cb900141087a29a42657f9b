@@ -1,0 +1,21 @@
+package Warmups;
+
+public class recursiveevens {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int n = 10;
+System.out.println(sumEvens(n));
+	}
+public static int sumEvens(int n){
+	if (n<=3){
+		return 2;
+	}else{
+		if(n%2==0){
+			return n+sumEvens(n-2);
+		}else{
+			return n+sumEvens(n-1);
+		}
+
+	}
+}
