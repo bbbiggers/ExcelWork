@@ -21,29 +21,32 @@ public class Operations {
 	public static double Solve(String i) {
 		if(i.contains("(") && i.contains(")") && i.contains(" ")) {
 		int j = i.indexOf("(")+1;
-		int k = i.indexOf(")");
+		int k = i.indexOf(")")-2;
 		if(i.contains("+")) {
 			int oper = i.indexOf("+");
-			double FirstNumber = Double.parseDouble(i.substring(j, oper));
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return FirstNumber+SecondNumber;
 		}
 		else if(i.contains("-")) {
 			int oper = i.indexOf("-");
-			double FirstNumber = Double.parseDouble(i.substring(j, oper));
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return FirstNumber-SecondNumber;
 		}
 		else if(i.contains("*")) {
 			int oper = i.indexOf("*");
-			double FirstNumber = Double.parseDouble(i.substring(j, oper));
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return FirstNumber*SecondNumber;
 		}
 		else if(i.contains("/")) {
 			int oper = i.indexOf("/");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper));
-			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
+			System.out.println("First: "+FirstNumber);
+			System.out.println(i.substring(oper, k+2));
+			double SecondNumber = Double.parseDouble(i.substring(oper+1, k+1));
+			System.out.println("Second: "+SecondNumber);
 			return FirstNumber/SecondNumber;
 		}
 		else {return 0;}

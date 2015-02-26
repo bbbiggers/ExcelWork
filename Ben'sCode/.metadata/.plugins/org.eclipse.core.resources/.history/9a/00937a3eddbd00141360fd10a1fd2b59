@@ -20,29 +20,29 @@ public class Operations {
 	}
 	public static double Solve(String i) {
 		if(i.contains("(") && i.contains(")") && i.contains(" ")) {
-		int j = i.indexOf("(")+1;
-		int k = i.indexOf(")");
+		int j = i.indexOf("(")+2;
+		int k = i.indexOf(")")-2;
 		if(i.contains("+")) {
 			int oper = i.indexOf("+");
-			double FirstNumber = Double.parseDouble(i.substring(j, oper));
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return FirstNumber+SecondNumber;
 		}
 		else if(i.contains("-")) {
 			int oper = i.indexOf("-");
-			double FirstNumber = Double.parseDouble(i.substring(j, oper));
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return FirstNumber-SecondNumber;
 		}
 		else if(i.contains("*")) {
 			int oper = i.indexOf("*");
-			double FirstNumber = Double.parseDouble(i.substring(j, oper));
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return FirstNumber*SecondNumber;
 		}
 		else if(i.contains("/")) {
 			int oper = i.indexOf("/");
-			double FirstNumber = Double.parseDouble(i.substring(j, oper));
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return FirstNumber/SecondNumber;
 		}
