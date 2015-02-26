@@ -1,0 +1,11 @@
+package Click;
+
+public class E136 {
+public static void main() {
+	
+}
+public static boolean find(String text, String str) {
+	if(text.contains(str)) {return true;}
+	return false;
+}
+}

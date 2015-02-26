@@ -1,0 +1,69 @@
+package Spread;
+
+public class Operations {
+
+	public static double Operate(String Equ, String[][] Sheat) {
+		int HasLocation = 0;
+		for(int i = 0; i < 7; i++) {
+			for(int j = 0; j < 10; j++) {
+				String o = AtoB(i);
+				String k = ""+j;
+			if(Equ.contains(o+k)) {
+			HasLocation = 1;	
+			}
+			}
+		}
+		if(HasLocation == 1) {
+			return Solve(Equ);
+		}
+		return 0.0;
+	}
+	
+	public static double Solve(String i) {
+		if(i.contains("(") && i.contains(")")) {
+		int j = i.indexOf("(");
+		int k = k.indexOf(")");
+		if(i.contains("+")) {
+			
+		}
+		else if(i.contains("-")) {
+			
+		}
+		else if(i.contains("*")) {
+			
+		}
+		else if(i.contains("/")) {
+			
+		}
+		}
+		return 0;
+	}
+	public static String AtoB(int Let) {
+		if(Let == 0) {
+			return "A";
+		}
+		else if(Let == 1) {
+			return "B";
+		}
+		else if(Let == 2) {
+			return "C";
+		}
+		else if(Let == 3) {
+			return "D";
+		}
+		else if(Let == 4) {
+			return "E";
+		}
+		else if(Let == 5) {
+			return "F";
+		}
+		else if(Let == 6) {
+			return "G";
+		}
+		else {
+			return "G";
+		}
+		
+		
+	}
+}

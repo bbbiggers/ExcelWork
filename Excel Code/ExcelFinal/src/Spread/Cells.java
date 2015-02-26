@@ -7,7 +7,6 @@ public class Cells {
 		Sheet = Sheat;
 		N = A;
 	}
-	
 	public static void Cel(int N) {
 		String Liner = "";
 		
@@ -17,6 +16,13 @@ public class Cells {
 				Liner = Liner+Sheet[N][j]+"|"; 
 			}
 			System.out.print("     10     |"+Liner+"\n");
+		}
+		else if(N == 9) {
+			N = 8;
+			for(int j = 0; j < 7; j++) {
+				Liner = Liner+Sheet[N][j]+"|"; 
+			}
+			System.out.print("     9      |"+Liner+"\n");
 		}
 		else if(N <=9 && N != 0) {
 			for(int j = 0; j < 7; j++) {

@@ -13,8 +13,13 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Line" key="selection"/>
+		<item value="printOut" key="selection"/>
 		<list key="findhistory">
+			<item value="Printout"/>
+			<item value="printOut"/>
+			<item value="System.out.print"/>
+			<item value="print"/>
+			<item value="add"/>
 			<item value="Line"/>
 		</list>
 		<list key="replacehistory">
