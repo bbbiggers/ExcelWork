@@ -180,11 +180,10 @@ public class FractionCalculator {
             
             
         }
-    
+    }
+}
     //public static void Quit()
     //{
       //  System.out.println("Goodbye!");
        // System.exit(0);
     //}
-}
-}​
