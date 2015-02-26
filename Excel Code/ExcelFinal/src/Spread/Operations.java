@@ -18,7 +18,6 @@ public class Operations {
 		}
 		return 0.0;
 	}
-	
 	public static double Solve(String i) {
 		if(i.contains("(") && i.contains(")") && i.contains(" ")) {
 		int j = i.indexOf("(")+2;
@@ -27,20 +26,29 @@ public class Operations {
 			int oper = i.indexOf("+");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
+			return FirstNumber+SecondNumber;
 		}
 		else if(i.contains("-")) {
 			int oper = i.indexOf("-");
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
+			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
+			return FirstNumber-SecondNumber;
 		}
 		else if(i.contains("*")) {
 			int oper = i.indexOf("*");
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
+			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
+			return FirstNumber*SecondNumber;
 		}
 		else if(i.contains("/")) {
 			int oper = i.indexOf("/");
+			double FirstNumber = Double.parseDouble(i.substring(j, oper-1));
+			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
+			return FirstNumber/SecondNumber;
 		}
+		else {return 0;}
 		}
-		else {
-			return 0;
-		}
+		else {return 0;}
 	
 	}
 	public static String AtoB(int Let) {

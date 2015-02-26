@@ -27,7 +27,7 @@ public class Spreadsheet extends Operations{
 	public static void printCell(int x, int y) {
 		System.out.println("Printing Cell....");
 		String i = ""+MathSheet[x-1][y];
-		if(i.contains("E")) {System.out.println(MathSheet[x][y]);}
+		if(i.contains("E")) {System.out.println(MathSheet[x-1][y]);}
 		else {System.out.println(ExtraSheet[x-1][y]);}
 	}
 	//RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT 
@@ -56,7 +56,17 @@ public class Spreadsheet extends Operations{
 		}
 		else if(Para) {
 			System.out.println("Paras");
-			Operate(Input, Sheet);
+			double infor = Operate(Input, Sheet);
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 10;
+			}
+			String J = ""+infor; 
+			add(Y, X, J, infor);
 		}
 		else if(Input.substring(4, 5).equals("=") && Text) {
 			int X = AtoB(Input.substring(0, 1));
@@ -88,7 +98,7 @@ public class Spreadsheet extends Operations{
 			//System.out.println(X+" " +Y);
 			add(Y, X, word, 0);
 		}
-		else if(Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) { // C1 = 12.1
+		else if((Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) && !Input.contains("/") && !Input.contains("+") && !Input.contains("-") && !Input.contains("*")) { // C1 = 12.1
 			int Eqa = Input.indexOf("=");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
@@ -121,16 +131,16 @@ public class Spreadsheet extends Operations{
 	public static void add(int X, int Y, String info, double GoodMath) {
 		System.out.println("infor"+info);
 		System.out.println("Math"+GoodMath);
-		if(X == 10) {
-			X = 9;
-		}
-		if(Y == 10) {
-			Y = 9;
-		}
+		//if(X == 10) {
+		//	X = 9;
+		//}
+		//if(Y == 10) {
+		//	Y = 9;
+		//}
 		//System.out.println(X+" " +Y);
-		Sheet[X][Y] = info;
-		ExtraSheet[X][Y] = info;
-		MathSheet[X][Y] = GoodMath;
+		Sheet[X-1][Y] = info;
+		ExtraSheet[X-1][Y] = info;
+		MathSheet[X-1][Y] = GoodMath;
 		FixIt();
 		System.out.println(Sheet[9][0]);
 	}

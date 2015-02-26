@@ -10,25 +10,17 @@ public class Cells {
 	public static void Cel(int N) {
 		String Liner = "";
 		
-		if(N == 10) {
-			N = 9;
+		if(N <=10 && N != 0 && N > -1) {
+			N = N-1;
 			for(int j = 0; j < 7; j++) {
 				Liner = Liner+Sheet[N][j]+"|"; 
 			}
-			System.out.print("     10     |"+Liner+"\n");
-		}
-		else if(N == 9) {
-			N = 8;
-			for(int j = 0; j < 7; j++) {
-				Liner = Liner+Sheet[N][j]+"|"; 
+			if(N == 9) {
+				System.out.print("     10     |"+Liner+"\n");
 			}
-			System.out.print("     9      |"+Liner+"\n");
-		}
-		else if(N <=9 && N != 0) {
-			for(int j = 0; j < 7; j++) {
-				Liner = Liner+Sheet[N][j]+"|"; 
+			else {
+			System.out.print("     "+(N+1)+"      |"+Liner+"\n");
 			}
-			System.out.print("     "+N+"      |"+Liner+"\n");
 		}
 		
 		
