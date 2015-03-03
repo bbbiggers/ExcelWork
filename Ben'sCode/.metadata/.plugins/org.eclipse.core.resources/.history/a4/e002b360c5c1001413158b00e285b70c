@@ -87,8 +87,8 @@ public class Operations {
 		 	String Equa = i.substring(j, k); //3+334+346-232/2
 			int OperationAmount = OpAmt(Equa); //4 
 			for(int KKK = OperationAmount; KKK > 0; KKK--) {
-				System.out.println(Equa.substring(0, SecondOperation(Equa))+"JER");
-				Value = Value+Solve(Equa.substring(0, SecondOperation(Equa)));
+				System.out.println(Equa.substring(SecondOperation(Equa))+"JER");
+				Value = Value+Solve(Equa.substring(SecondOperation(Equa)));
 			}
 		}
 		else {System.out.println("Need Help?"); return 0;}

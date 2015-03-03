@@ -14,7 +14,7 @@ public class Operations {
 			}
 		}
 		if(HasLocation == 1) {
-			return UberSolve(Equ);
+			return Solve(Equ);
 		}
 		return 0.0;
 	}
@@ -49,54 +49,14 @@ public class Operations {
 	}
 		return count;
 	}
-	public static int FindOperation(String i) {
-		int Location = -1;
-		if(i.contains("+")) {
-			if(i.indexOf("+") > Location) {
-			Location = i.indexOf("+");
-			}
-		}
-		if(i.contains("-")) {
-			if(i.indexOf("-") > Location) {
-				Location = i.indexOf("-");	
-				}
-		}
-		if(i.contains("/")) {
-			if(i.indexOf("/") > Location) {
-				Location = i.indexOf("/");	
-				}
-		}
-		if(i.contains("*")) {
-			if(i.indexOf("*") > Location) {
-				Location = i.indexOf("*");	
-				}
-		}
-		return Location;
-	}
-	public static int SecondOperation(String i) {
-		int lo  = 0;
-		lo = FindOperation(i);
-		lo = FindOperation(i.substring(lo));
-		return lo;
-	}
-	public static double UberSolve(String i) {
-		double Value = 0;
-		if(i.contains("(") && i.contains(")") && i.contains(" ")) {
-			int j = i.indexOf("(")+1;
-			int k = i.indexOf(")");
-		 	String Equa = i.substring(j, k); //3+334+346-232/2
-			int OperationAmount = OpAmt(Equa); //4 
-			for(int KKK = OperationAmount; KKK > 0; KKK--) {
-				System.out.println(Equa.substring(0, SecondOperation(Equa))+"JER");
-				Value = Value+Solve(Equa.substring(0, SecondOperation(Equa)));
-			}
-		}
-		else {System.out.println("Need Help?"); return 0;}
-		return Value;
-	}
 	public static double Solve(String i) {
+		if(i.contains("(") && i.contains(")") && i.contains(" ")) {
 		int j = i.indexOf("(")+1;
 		int k = i.indexOf(")");
+		String Equa = i.substring(j, k);
+		System.out.println("|"+Equa+"|");
+		int OperationAmount = OpAmt(Equa);
+System.out.println(OperationAmount+"This");
 		if(i.contains("+")) {
 			int oper = i.indexOf("+");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper));
@@ -122,6 +82,9 @@ public class Operations {
 			return FirstNumber/SecondNumber;
 		}
 		else {System.out.println("Need Help?"); return 0;}
+		
+		}
+		else {System.out.println("Need Help?");return 0;}
 	}
 	public static String AtoB(int Let) {
 		if(Let == 0) {
