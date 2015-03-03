@@ -52,7 +52,7 @@ public class Operations {
 		String Equa = i.substring(j, k);
 		System.out.println("|"+Equa+"|");
 		int OperationAmount = OpAmt(Equa);
-System.out.println(OperationAmount);
+System.out.println("OpAmt");
 		if(i.contains("+")) {
 			int oper = i.indexOf("+");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper));

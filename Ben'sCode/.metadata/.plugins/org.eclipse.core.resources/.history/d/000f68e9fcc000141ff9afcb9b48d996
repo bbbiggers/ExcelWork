@@ -29,15 +29,15 @@ public class Operations {
 		}
 		else if(info.contains("-")) {
 			place = info.indexOf("-");
-			info = info.substring(place+1);
+			info = info.substring(place);
 		}
 		else if(info.contains("*")) {
 			place = info.indexOf("*");
-			info = info.substring(place+1);
+			info = info.substring(place);
 		}
 		else if(info.contains("/")) {
 			place = info.indexOf("/");
-			info = info.substring(place+1);
+			info = info.substring(place);
 		}
 		else {
 		System.out.println("Need Help?");
@@ -52,7 +52,7 @@ public class Operations {
 		String Equa = i.substring(j, k);
 		System.out.println("|"+Equa+"|");
 		int OperationAmount = OpAmt(Equa);
-System.out.println(OperationAmount);
+
 		if(i.contains("+")) {
 			int oper = i.indexOf("+");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper));
