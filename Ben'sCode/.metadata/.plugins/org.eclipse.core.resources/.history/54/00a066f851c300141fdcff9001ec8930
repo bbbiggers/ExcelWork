@@ -1,0 +1,16 @@
+package warmUp;
+
+public class Fibber {
+public static void main(String[] args) {
+	Fibonochi(2);
+}
+public static void Fibonochi(int n) {
+	if(n == 0) {
+		return;
+	}
+	System.out.println();
+for(int i = 1; i < n; i++) {
+	
+}
+}
+}

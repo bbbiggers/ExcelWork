@@ -1,0 +1,16 @@
+package warmUp;
+
+import java.util.ArrayList;
+
+public class FourAjacet {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> stuffer = new ArrayList<Integer>;
+		
+		Leopold();
+	}
+	public double Leopold() {
+		
+		return 3;
+	}
+}
