@@ -1,0 +1,14 @@
+package warmUp;
+
+public class Find7 {
+
+	public static void main(String[] args) {
+		
+	}
+	public int find(int num) {
+		if(num ) {
+			
+		}
+		return 0;
+	}
+}
