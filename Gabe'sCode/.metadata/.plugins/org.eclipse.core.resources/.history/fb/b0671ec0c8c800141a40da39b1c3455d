@@ -1,0 +1,20 @@
+package Warmups;
+
+public class triNum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int n = 5;
+System.out.println(tri(n));
+	}
+public static int tri(int n){
+	int total = 0;
+	for(int i = 1;i<=n;i++){
+		total+=i;
+	}
+	return total;
+}
+
+
+
+}

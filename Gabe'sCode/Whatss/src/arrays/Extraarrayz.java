@@ -11,6 +11,7 @@ public static void main (String [] args){
 	array[2]=2;
 	array[3]=3;
 	
+	
 	array = add(array,A);
 	for(int i = 0;i<array.length;i++){
 		System.out.println(array[i]);

@@ -14,6 +14,8 @@ public class arrayWords {
 		Words.add("not");
 		Words.add("to");
 		Words.add("be");
+		
+		
 		System.out.println(Words);
 		
 		for(int i = 1;i<Words.size();i+=2){

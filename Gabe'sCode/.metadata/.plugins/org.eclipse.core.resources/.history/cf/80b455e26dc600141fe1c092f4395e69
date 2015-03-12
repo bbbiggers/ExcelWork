@@ -1,0 +1,16 @@
+package Warmups;
+
+public class findingDigit {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int a = 717;
+		System.out.println(717%10);
+		System.out.println(717/10);
+		
+		
+		
+	}
+
+}
