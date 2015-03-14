@@ -75,8 +75,8 @@ public class Operations {
 	}
 	public static int SecondOperation(String i) {
 		int lo  = 0;
-		lo = FindOperation(i);
-		lo = FindOperation(i.substring(lo));
+		lo = FindOperation(i); System.out.println("G"+lo);
+		lo = FindOperation(i.substring(lo)); System.out.println("G"+lo);
 		return lo;
 	}
 	public static double UberSolve(String i) {
@@ -86,15 +86,22 @@ public class Operations {
 			int k = i.indexOf(")");
 		 	String Equa = i.substring(j, k); //3+334+346-232/2
 			int OperationAmount = OpAmt(Equa); //4 
+			if(OperationAmount == 1) {
+			return Solve(Equa);
+			}
+			if(OperationAmount == 0) {
+				return 0;
+				}
 			for(int KKK = OperationAmount; KKK > 0; KKK--) {
 				System.out.println(Equa.substring(0, SecondOperation(Equa))+"JER");
 				Value = Value+Solve(Equa.substring(0, SecondOperation(Equa)));
 			}
 		}
-		else {System.out.println("Need Help?"); return 0;}
+		else {System.out.println("Need Help? "); return 0;}
 		return Value;
 	}
 	public static double Solve(String i) {
+		System.out.println("the i in solve"+i);
 		int j = i.indexOf("(")+1;
 		int k = i.indexOf(")");
 		if(i.contains("+")) {
