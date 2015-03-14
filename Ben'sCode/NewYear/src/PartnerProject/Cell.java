@@ -1,4 +1,4 @@
-package PartnerProject;
+package NewYear.src.PartnerProject;
 
 public class Cell {
 

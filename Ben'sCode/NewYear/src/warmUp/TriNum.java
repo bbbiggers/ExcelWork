@@ -1,4 +1,4 @@
-package warmUp;
+package NewYear.src.warmUp;
 public class TriNum {
 
 	public static void main(String[] args) {

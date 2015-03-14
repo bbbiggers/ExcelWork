@@ -1,4 +1,4 @@
-package warmUp;
+package NewYear.src.warmUp;
 
 public class Factorial {
 	public static void main(String[] args) {

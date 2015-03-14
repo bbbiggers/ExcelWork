@@ -1,4 +1,4 @@
-package warmUp;
+package NewYear.src.warmUp;
 
 public class Fibber {
 public static void main(String[] args) {

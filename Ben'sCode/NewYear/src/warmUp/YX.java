@@ -1,4 +1,4 @@
-package warmUp;
+package NewYear.src.warmUp;
 
 public class YX {
 public static void main() {

@@ -1,4 +1,4 @@
-package Spread;
+package ExcelFinal.src.Spread;
 
 public class Cells {
 	private int N;
