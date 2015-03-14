@@ -1,4 +1,4 @@
-package NewYear.src.Click;
+package Click;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package NewYear.src.warmUp;
+package warmUp;
 
 public class ClassTester {
 

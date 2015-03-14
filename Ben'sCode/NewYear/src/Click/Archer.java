@@ -1,4 +1,4 @@
-package NewYear.src.Click;
+package Click;
 
 public class Archer {
 private int arrows = 50;

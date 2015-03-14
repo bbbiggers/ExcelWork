@@ -1,5 +1,3 @@
-package Speech.src;
-
 
 public class tester {
 

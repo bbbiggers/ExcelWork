@@ -1,4 +1,4 @@
-package NewYear.src.Click;
+package Click;
 
 public class DateTracker extends Date implements DateInterface{
 	private static int month;

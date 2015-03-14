@@ -1,4 +1,4 @@
-package NewYear.src.Click;
+package Click;
 
 public class E136 {
 public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package NewYear.src.Click;
+package Click;
 
 public abstract class Date {
 private int month;

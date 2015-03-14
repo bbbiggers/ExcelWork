@@ -1,5 +1,3 @@
-package Speech.src;
-
 import java.util.Scanner;
 
 

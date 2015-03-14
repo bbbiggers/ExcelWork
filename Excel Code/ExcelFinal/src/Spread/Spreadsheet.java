@@ -1,4 +1,4 @@
-package ExcelFinal.src.Spread;
+package Spread;
 
 public class Spreadsheet extends Operations{
 	private static String[][] Sheet;

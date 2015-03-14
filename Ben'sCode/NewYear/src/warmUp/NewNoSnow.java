@@ -1,4 +1,4 @@
-package NewYear.src.warmUp;
+package warmUp;
 
 import java.util.ArrayList;
 import java.util.Scanner;

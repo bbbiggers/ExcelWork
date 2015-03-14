@@ -1,4 +1,4 @@
-package NewYear.src.PartnerProject;
+package PartnerProject;
 
 public class Excel_Spread {
 

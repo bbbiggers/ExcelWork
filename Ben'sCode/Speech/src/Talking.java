@@ -1,5 +1,3 @@
-package Speech.src;
-
 
 public class Talking {
 	public static void main (String[] args) {

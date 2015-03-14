@@ -1,4 +1,4 @@
-package ExcelFinal.src.Spread;
+package Spread;
 
 import java.util.Scanner;
 
