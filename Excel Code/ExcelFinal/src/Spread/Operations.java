@@ -1,4 +1,4 @@
-package Spread;
+package ExcelFinal.src.Spread;
 
 public class Operations {
 
@@ -101,7 +101,7 @@ public class Operations {
 		return Value;
 	}
 	public static double Solve(String i) {
-		System.out.println("the i in solve"+i);
+		System.out.println("the i in solve  "+i);
 		int j = i.indexOf("(")+1;
 		int k = i.indexOf(")");
 		if(i.contains("+")) {
