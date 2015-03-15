@@ -1,0 +1,12 @@
+package Spread;
+
+public class Formulations extends Spreadsheet{
+
+	Formulations(String[][] Sheat) {
+		super(Sheat);
+	}
+	public static void Formulations() {
+		Sheet[2][2] = "2";
+	}
+	
+}

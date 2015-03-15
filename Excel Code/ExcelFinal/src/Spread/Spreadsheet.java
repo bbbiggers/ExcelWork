@@ -1,9 +1,10 @@
 package Spread;
 
 public class Spreadsheet extends Operations{
-	private static String[][] Sheet;
-	private static String[][] ExtraSheet;
-	private static double[][] MathSheet = new double[10][7];
+	static String[][] Sheet;
+	static String[][] ExtraSheet;
+	static double[][] MathSheet = new double[10][7];
+	static String[][] Formulas = new String[10][7];
 	Spreadsheet(String[][] Sheat) {
 		Sheet = Sheat;
 		ExtraSheet = Sheat;
@@ -14,6 +15,7 @@ public class Spreadsheet extends Operations{
 		}
 	}
 	public static void printSheet() {
+		apply();
 		FixIt();
 		Line(1);
 		Line(0);
@@ -29,6 +31,64 @@ public class Spreadsheet extends Operations{
 		String i = ""+MathSheet[x-1][y];
 		if(i.contains("E")) {System.out.println(MathSheet[x-1][y]);}
 		else {System.out.println(ExtraSheet[x-1][y]);}
+	}
+	public static void Store(String j, int y, int x) {
+		System.out.println("store");
+		Formulas[x-1][y] = j;
+		System.out.println("jokks"+Formulas[x-1][y]);
+		apply();
+	}
+	public static void apply() {
+		System.out.println("Applying Some Changes...");
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 7; j++) {
+				if(Formulas[i][j].contains("A") || Formulas[i][j].contains("B") || Formulas[i][j].contains("C") || Formulas[i][j].contains("D") || Formulas[i][j].contains("E") || Formulas[i][j].contains("F") || Formulas[i][j].contains("G")) {//if it contains something
+					System.out.println("iner");
+					String gh = " ("+replacer(Formulas[i][j])+")";
+					System.out.println("gh"+gh);
+					double klo = UberSolve(gh);
+					MathSheet[i][j] = klo;
+					Sheet[i][j] = ""+klo;
+					ExtraSheet[i][j] = ""+klo;
+				}
+			}
+		}
+	}
+	public int u = 0;
+	public static String replacer(String formulas) {
+		String va = "";
+		for(int k = 0; k < formulas.length()-1; k++) {
+			String y = formulas.substring(k, k+2);
+			for(int i = 0; i < 10; i++) {
+				for(int j = 0; j < 7; j++) {
+					va = AtoB(j)+(i+1);
+					//System.out.println("vas"+va);
+					if(y.equals(va)) {
+						if(va.equals("A1")||va.equals("B1")||va.equals("C1")||va.equals("D1")||va.equals("E1")||va.equals("F1")||va.equals("G1")){
+							String z = formulas.substring(k+2, k+3);
+							if(z.equals("0")) {
+								String p1 = formulas.substring(0, k);
+								String p2 = formulas.substring(k+3);
+								formulas = p1+MathSheet[9][j]+p2;
+								System.out.println("from"+formulas);
+							}
+							else {
+								String p1 = formulas.substring(0, k);
+								String p2 = formulas.substring(k+2);
+								formulas = p1+MathSheet[i][j]+p2;
+								System.out.println("from"+formulas);
+							}
+						}else{
+						String p1 = formulas.substring(0, k);
+						String p2 = formulas.substring(k+2);
+						formulas = p1+MathSheet[i][j]+p2;
+						System.out.println("from"+formulas);
+						}
+					}
+				}
+			}
+		}
+	return formulas;
 	}
 	//RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT 
 	public static void Decipher(String Input) {
@@ -56,6 +116,8 @@ public class Spreadsheet extends Operations{
 		}
 		else if(Para) {
 			System.out.println("Paras");
+			String hl = Input.substring(3);
+			if(!hl.contains("A") && !hl.contains("B") && !hl.contains("C") && !hl.contains("D") && !hl.contains("E") && !hl.contains("F") && !hl.contains("G")) {
 			double infor = Operate(Input, Sheet);
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
@@ -67,6 +129,24 @@ public class Spreadsheet extends Operations{
 			}
 			String J = ""+infor; 
 			add(Y, X, J, infor);
+			}
+			else if(hl.contains("A") || hl.contains("B") || hl.contains("C") || hl.contains("D") || hl.contains("E") || hl.contains("F") || hl.contains("G")) {
+				System.out.println("On tracks");
+				int j = Input.indexOf("(")+1;
+				int k = Input.indexOf(")");
+				System.out.println(Input.substring(j, k));
+				String kol = Input.substring(j, k);
+				int X = AtoB(Input.substring(0, 1));
+				int Y = 7;
+				if(Input.indexOf(" ") == 2) {
+					Y = Integer.parseInt(Input.substring(1, 2));
+				}
+				else {
+					Y = 10;
+				}
+				System.out.println("x:"+X+"y:"+Y+"kol"+kol);
+				Store(kol, X, Y);
+			}
 		}
 		else if(Input.substring(4, 5).equals("=") && Text) {
 			int X = AtoB(Input.substring(0, 1));
@@ -98,7 +178,9 @@ public class Spreadsheet extends Operations{
 			//System.out.println(X+" " +Y);
 			add(Y, X, word, 0);
 		}
-		else if((Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) && !Input.contains("/") && !Input.contains("+") && !Input.contains("-") && !Input.contains("*")) { // C1 = 12.1
+		else if((Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) && !Input.contains("/") && !Input.contains("+") && !Input.contains("-") && !Input.contains("*")) {// C1 = 12.1
+			String hl = Input.substring(3);
+			if(!hl.contains("A") || !hl.contains("B") || !hl.contains("C") || !hl.contains("D") || !hl.contains("E") || !hl.contains("F") || !hl.contains("G")) {
 			int Eqa = Input.indexOf("=");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
@@ -117,16 +199,25 @@ public class Spreadsheet extends Operations{
 			//System.out.println("PICK EM");
 			System.out.println(X+" "+Y);
 			add(Y, X, in, inf);
+			}
+			else if(hl.contains("A") || hl.contains("B") || hl.contains("C") || hl.contains("D") || hl.contains("E") || hl.contains("F") || hl.contains("G")) {
+				System.out.println("somehow");
+			}
+			else {
+				return;
+			}
 		}
 		else if(duck) {
 			System.out.println("Chex PRev");
 		}
+		apply();
 	}
 	//RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT
 	public static void clear(int X, int Y) {
 		Sheet[X][Y] = "            ";
 		ExtraSheet[X][Y] = "";
 		MathSheet[X][Y] = 0;
+		Formulas[X][Y] = "";
 	}
 	public static void add(int X, int Y, String info, double GoodMath) {
 		System.out.println("infor"+info);
@@ -159,6 +250,7 @@ public class Spreadsheet extends Operations{
 				Sheet[i][j] = "            ";
 				ExtraSheet[i][j] = "";
 				MathSheet[i][j] = 0;
+				Formulas[i][j] = "";
 			}
 		}
 		

@@ -1,0 +1,8 @@
+package Spread;
+
+public class Formulations extends Operations{
+
+	public static void Formulations(String[][] Sheat) {
+		
+	}
+}

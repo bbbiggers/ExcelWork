@@ -82,7 +82,7 @@ public class Operations {
 			return Solve(Equa);
 			}
 			if(OperationAmount == 0) {
-				return 0;
+				return Double.parseDouble(Equa);
 				}
 			for(int KKK = OperationAmount; KKK > 1; KKK--) {
 				System.out.println("Is it going hereg"+Equa);
@@ -103,8 +103,8 @@ public class Operations {
 				}
 			Value = Double.parseDouble(vo);
 		}
-		else {System.out.println("Need Help? thisa "); return 0;}
-		return Value;
+		else {System.out.println("Vo");return 0.0;}
+		return 8;
 	}
 	public static double Solve(String i) {
 		System.out.println("the i in solve  "+i);

@@ -2,7 +2,7 @@ package Spread;
 
 import java.util.Scanner;
 
-public class TextExcel {
+public class TextExcel{
 	
 
 	public static void main(String[] args) {
@@ -61,6 +61,7 @@ public class TextExcel {
 			else {
 				System.out.println("Check Mark");
 				Shet.Decipher(Exit);
+				
 				//Shet.printOut();
 			}
 		}
