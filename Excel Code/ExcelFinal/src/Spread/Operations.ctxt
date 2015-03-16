@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=Equ\ Sheat
+comment0.target=double\ Operate(java.lang.String,\ java.lang.String[][])
+comment1.params=info
+comment1.target=int\ OpAmt(java.lang.String)
+comment2.params=i
+comment2.target=int\ FindOperation(java.lang.String)
+comment3.params=i
+comment3.target=int\ SecondOperation(java.lang.String)
+comment4.params=i
+comment4.target=double\ UberSolve(java.lang.String)
+comment5.params=i
+comment5.target=double\ Solve(java.lang.String)
+comment6.params=Let
+comment6.target=java.lang.String\ AtoB(int)
+numComments=7
