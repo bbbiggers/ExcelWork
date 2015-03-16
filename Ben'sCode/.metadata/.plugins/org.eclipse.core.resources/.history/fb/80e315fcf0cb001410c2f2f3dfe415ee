@@ -102,7 +102,7 @@ public class Spreadsheet extends Operations{
 		if(Input.contains("(") && Input.contains(")")) {
 			Para = true;
 		}
-		if(Input.length() <= 3 && (Input.contains("A") || Input.contains("B") || Input.contains("C") || Input.contains("D") || Input.contains("E") || Input.contains("F") || Input.contains("G"))) {
+		if(Input.length() <= 3) {
 			System.out.println("Check Mark 2");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
@@ -148,7 +148,7 @@ public class Spreadsheet extends Operations{
 				Store(kol, X, Y);
 			}
 		}
-		else if(Input.length() > 5 && Input.substring(4, 5).equals("=") && Text) {
+		else if(Input.substring(4, 5).equals("=") && Text) {
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
 			if(Input.indexOf(" ") == 2) {
@@ -163,7 +163,7 @@ public class Spreadsheet extends Operations{
 			add(Y, X, word, 0);
 			System.out.println(X+" " +Y);
 		}
-		else if(Input.length() > 4 && Input.substring(3, 4).equals("=") && Text) {
+		else if(Input.substring(3, 4).equals("=") && Text) {
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
 			if(Input.indexOf(" ") == 2) {
@@ -178,7 +178,7 @@ public class Spreadsheet extends Operations{
 			//System.out.println(X+" " +Y);
 			add(Y, X, word, 0);
 		}
-		else if(Input.length() > 5 && (Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) && !Input.contains("/") && !Input.contains("+") && !Input.contains("-") && !Input.contains("*")) {// C1 = 12.1
+		else if((Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) && !Input.contains("/") && !Input.contains("+") && !Input.contains("-") && !Input.contains("*")) {// C1 = 12.1
 			String hl = Input.substring(3);
 			if(!hl.contains("A") || !hl.contains("B") || !hl.contains("C") || !hl.contains("D") || !hl.contains("E") || !hl.contains("F") || !hl.contains("G")) {
 			int Eqa = Input.indexOf("=");
