@@ -5,7 +5,6 @@ public class Spreadsheet extends Operations{
 	static String[][] ExtraSheet;
 	static double[][] MathSheet = new double[10][7];
 	static String[][] Formulas = new String[10][7];
-	static String[][] Altered = new String[10][7];
 	Spreadsheet(String[][] Sheat) {
 		Sheet = Sheat;
 		ExtraSheet = Sheat;
@@ -244,7 +243,6 @@ public class Spreadsheet extends Operations{
 		Sheet[X-1][Y] = info;
 		ExtraSheet[X-1][Y] = info;
 		MathSheet[X-1][Y] = GoodMath;
-		Altered[X-1][Y] = "a";
 		FixIt();
 		System.out.println(Sheet[9][0]);
 	}

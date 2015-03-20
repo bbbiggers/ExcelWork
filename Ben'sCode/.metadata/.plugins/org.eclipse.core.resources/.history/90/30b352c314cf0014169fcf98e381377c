@@ -245,6 +245,7 @@ public class Spreadsheet extends Operations{
 		ExtraSheet[X-1][Y] = info;
 		MathSheet[X-1][Y] = GoodMath;
 		Altered[X-1][Y] = "a";
+		System.out.println("ADDED");
 		FixIt();
 		System.out.println(Sheet[9][0]);
 	}

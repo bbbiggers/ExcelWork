@@ -5,7 +5,6 @@ public class Spreadsheet extends Operations{
 	static String[][] ExtraSheet;
 	static double[][] MathSheet = new double[10][7];
 	static String[][] Formulas = new String[10][7];
-	static String[][] Altered = new String[10][7];
 	Spreadsheet(String[][] Sheat) {
 		Sheet = Sheat;
 		ExtraSheet = Sheat;
@@ -26,18 +25,13 @@ public class Spreadsheet extends Operations{
 			Line(0);
 		}
 	}
+	
 	public static void printCell(int x, int y) {
 		System.out.println("Printing Cell....");
 		String i = ""+MathSheet[x-1][y];
 		if(i.contains("E")) {System.out.println(MathSheet[x-1][y]);}
 		else {System.out.println(ExtraSheet[x-1][y]);}
 	}
-	/*
-	public static double () {
-		
-	}
-	*/
-	//Formulas
 	public static void Store(String j, int y, int x) {
 		System.out.println("store");
 		Formulas[x-1][y] = j;
@@ -108,13 +102,7 @@ public class Spreadsheet extends Operations{
 		if(Input.contains("(") && Input.contains(")")) {
 			Para = true;
 		}
-		if(Input.contains("sum") || Input.contains("Sum")) {
-			
-		}
-		else if(Input.contains("avg") || Input.contains("avg")) {
-			
-		}
-		else if(Input.length() <= 3 && (Input.contains("A") || Input.contains("B") || Input.contains("C") || Input.contains("D") || Input.contains("E") || Input.contains("F") || Input.contains("G"))) {
+		if(Input.length() <= 3 && (Input.contains("A") || Input.contains("B") || Input.contains("C") || Input.contains("D") || Input.contains("E") || Input.contains("F") || Input.contains("G"))) {
 			System.out.println("Check Mark 2");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
@@ -244,7 +232,6 @@ public class Spreadsheet extends Operations{
 		Sheet[X-1][Y] = info;
 		ExtraSheet[X-1][Y] = info;
 		MathSheet[X-1][Y] = GoodMath;
-		Altered[X-1][Y] = "a";
 		FixIt();
 		System.out.println(Sheet[9][0]);
 	}
