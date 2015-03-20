@@ -1,0 +1,22 @@
+package Warmups;
+
+public class Flatet {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[][] myArray = {     {1, 2, 3},
+								{4, 5, 6},
+								{7, 8, 9}	};
+		System.out.println(myArray.length);
+		
+		
+	}
+public static int[] flatten(int[][]a){
+int[]b = new int[a.length];
+
+for(int i = 0;i<a)
+
+
+}
+}
