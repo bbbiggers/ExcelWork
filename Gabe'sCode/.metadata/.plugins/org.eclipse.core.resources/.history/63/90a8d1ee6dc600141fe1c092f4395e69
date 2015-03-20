@@ -1,0 +1,32 @@
+package Warmups;
+
+public class findingDigit {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int a = 717;
+		System.out.println(frog(a));
+		
+		
+	}
+
+	public static int frog(int a){
+		int count;
+		
+		if(a<0){
+			return 0;
+		}
+		else if(a%10 == 7){
+			a=a/10;
+			return 1+frog(a);
+		}
+		else{
+			a=a/10;
+			return frog(a);
+		}
+	}
+	
+	
+	
+}

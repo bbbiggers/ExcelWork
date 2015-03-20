@@ -1,0 +1,31 @@
+package Warmups;
+
+public class fibbonacciNumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int n = 6;
+fibbon(n);
+	}
+public static void fibbon(int n){
+
+int temp1 = 1;
+int temp2 = 1;
+for(int i = 1;i<=n;i++){
+if(i == 1){
+	System.out.println(1);
+	
+		temp1 = 1;
+		temp2 = 0;
+	}else{
+		System.out.println(temp1+temp2);
+		temp1 = i;
+		temp2 = temp1;
+	}
+}
+}
+
+	
+}
+
+

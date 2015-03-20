@@ -1,0 +1,30 @@
+package Warmups;
+import java.util.Random;
+public class arrayRando {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int n = 6;
+int[] list = randomNumber(n);
+
+for(int i = 0;i<list.length;i++){
+	System.out.println(list[i]);
+}
+
+
+
+	}
+public static int[] randomNumber(int n){
+	
+	int[] list = new int[n];	 
+	Random randy = new Random();
+for(int i = 0;i<n;i++){
+	list[i] = randy.nextInt(1000000);
+}
+return list;
+
+
+}
+
+
+}

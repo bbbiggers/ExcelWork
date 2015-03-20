@@ -4,8 +4,8 @@ public class compareTwoStrings {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-String a = "aab";
-String b = "baa";
+String a = "ben";
+String b = "edcba";
 System.out.println(compare(a,b));
 	}
 public static boolean compare(String a,String b){
