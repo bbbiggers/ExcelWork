@@ -152,7 +152,7 @@ public class Operations {
 			if((i.substring(0, 2)).contains("-") && (i.substring(2)).contains("-")) {
 				oper = i.indexOf("-", 2);
 			}
-			else if(!((i.substring(1)).contains("-"))) {
+			else if(!((i.substring(2)).contains("-"))) {
 				return Double.parseDouble(i);
 			}
 			else {

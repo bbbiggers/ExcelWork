@@ -148,16 +148,7 @@ public class Operations {
 			return (FirstNumber/SecondNumber);
 		}
 		else if(i.contains("-")) {
-			int oper = 0;
-			if((i.substring(0, 2)).contains("-") && (i.substring(2)).contains("-")) {
-				oper = i.indexOf("-", 2);
-			}
-			else if(!((i.substring(1)).contains("-"))) {
-				return Double.parseDouble(i);
-			}
-			else {
-				oper = i.indexOf("-");
-			}
+			int oper = i.indexOf("-");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return (FirstNumber-SecondNumber);

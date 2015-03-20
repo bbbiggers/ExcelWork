@@ -26,7 +26,6 @@ public class TextExcel{
 		else if(Exit.equals("help")||Exit.equals("Help")) {
 			
 			if(helper == 0) {
-			System.out.println("When in Doubt take the spaces Out");
 			System.out.println("To Clear All type\"Clear All\"");
 			System.out.println("To Add type\"Add\"");
 			System.out.println("To Clear type \"Clear\"and the location \"A1\"");

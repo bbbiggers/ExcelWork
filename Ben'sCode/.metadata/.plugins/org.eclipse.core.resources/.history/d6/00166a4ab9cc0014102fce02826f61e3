@@ -70,15 +70,7 @@ public class Operations {
 		return lo;
 	}
 	public static String fluck(String l) {
-		String temp1 = "";
-		String temp2 = "";
-		for(int i = 0; i < l.length(); i++) {
-			if(l.substring(i, i+1).equals(" ")) {
-				temp1 = l.substring(0, i); System.out.println("t1"+temp1);
-				temp2 = l.substring(i+1);  System.out.println("t2"+temp2);
-				l = temp1+temp2;
-			}
-		}
+		l.replaceAll(" ", "");
 		return l;
 	}
 	public static double UberSolve(String i) {
@@ -118,49 +110,37 @@ public class Operations {
 				}
 				}
 			Value = Double.parseDouble(vo);
-			return Value;
 		}
-		else {
-			System.out.println("Vo");
-			return 0.0;
-		}
+		else {System.out.println("Vo");return 0.0;}
+		return 8;
 	}
 	public static double Solve(String i) {
-		System.out.println("the i in solve:"+i+":");
+		System.out.println("the i in solve  "+i);
 		int j = 0;
 		int k = i.length();
 		if(i.contains("+")) {
 			int oper = i.indexOf("+");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
-			return (FirstNumber+SecondNumber);
+			return FirstNumber+SecondNumber;
+		}
+		else if(i.contains("-")) {
+			int oper = i.indexOf("-");
+			double FirstNumber = Double.parseDouble(i.substring(j, oper));
+			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
+			return FirstNumber-SecondNumber;
 		}
 		else if(i.contains("*")) {
 			int oper = i.indexOf("*");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
-			return (FirstNumber*SecondNumber);
+			return FirstNumber*SecondNumber;
 		}
 		else if(i.contains("/")) {
 			int oper = i.indexOf("/");
 			double FirstNumber = Double.parseDouble(i.substring(j, oper));
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
-			return (FirstNumber/SecondNumber);
-		}
-		else if(i.contains("-")) {
-			int oper = 0;
-			if((i.substring(0, 2)).contains("-") && (i.substring(2)).contains("-")) {
-				oper = i.indexOf("-", 2);
-			}
-			else if(!((i.substring(1)).contains("-"))) {
-				return Double.parseDouble(i);
-			}
-			else {
-				oper = i.indexOf("-");
-			}
-			double FirstNumber = Double.parseDouble(i.substring(j, oper));
-			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
-			return (FirstNumber-SecondNumber);
+			return FirstNumber/SecondNumber;
 		}
 		else {System.out.println("Need Help? j"); return 0;}
 	}
