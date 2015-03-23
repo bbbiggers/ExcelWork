@@ -46,18 +46,9 @@ public class Spreadsheet extends Operations{
 		return l;
 	}
 	public static double sum(String in) {
-		int m = in.indexOf("m");
-		int das = in.indexOf("-");
-		int X1 = AtoB(in.substring(m+1, m+2));
-		int Y1;
-		int X2 = AtoB(in.substring(das+1, das+2));
-		int Y2;
-		System.out.println("x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
 		return 0;
 	}
 public static double avg(String in) {
-		int ;
-		int ;
 		return 0;
 	}
 	//Formulas
@@ -133,11 +124,9 @@ public static double avg(String in) {
 		}
 		if(Input.contains("sum") || Input.contains("Sum")) {
 			System.out.println("summing");
-			System.out.println("y"+(Input.substring(0, Input.indexOf(" ")))+":");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
-			String temps = Input.substring(0, Input.indexOf(" "));
-			if(temps.length() == 2) {
+			if(Input.length() == 2) {
 				Y = Integer.parseInt(Input.substring(1, 2));
 			}
 			else {
@@ -145,8 +134,6 @@ public static double avg(String in) {
 			}
 			Input = fluck(Input);
 			double ans = sum(Input);
-			String an = ""+ans;
-			add(Y, X, an, ans);
 		}
 		else if(Input.contains("avg") || Input.contains("avg")) {
 			System.out.println("Averaging");

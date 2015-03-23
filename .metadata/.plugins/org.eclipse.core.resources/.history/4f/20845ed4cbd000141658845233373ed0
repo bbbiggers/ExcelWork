@@ -32,34 +32,11 @@ public class Spreadsheet extends Operations{
 		if(i.contains("E")) {System.out.println(MathSheet[x-1][y]);}
 		else {System.out.println(ExtraSheet[x-1][y]);}
 	}
-	//Sum/Avg stuff
-	public static String fluck(String l) {
-		String temp1 = "";
-		String temp2 = "";
-		for(int i = 0; i < l.length(); i++) {
-			if(l.substring(i, i+1).equals(" ")) {
-				temp1 = l.substring(0, i); System.out.println("t1"+temp1);
-				temp2 = l.substring(i+1);  System.out.println("t2"+temp2);
-				l = temp1+temp2;
-			}
-		}
-		return l;
+	/*
+	public static double () {
+		
 	}
-	public static double sum(String in) {
-		int m = in.indexOf("m");
-		int das = in.indexOf("-");
-		int X1 = AtoB(in.substring(m+1, m+2));
-		int Y1;
-		int X2 = AtoB(in.substring(das+1, das+2));
-		int Y2;
-		System.out.println("x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
-		return 0;
-	}
-public static double avg(String in) {
-		int ;
-		int ;
-		return 0;
-	}
+	*/
 	//Formulas
 	public static void Store(String j, int y, int x) {
 		System.out.println("store");
@@ -133,35 +110,11 @@ public static double avg(String in) {
 		}
 		if(Input.contains("sum") || Input.contains("Sum")) {
 			System.out.println("summing");
-			System.out.println("y"+(Input.substring(0, Input.indexOf(" ")))+":");
-			int X = AtoB(Input.substring(0, 1));
-			int Y = 7;
-			String temps = Input.substring(0, Input.indexOf(" "));
-			if(temps.length() == 2) {
-				Y = Integer.parseInt(Input.substring(1, 2));
-			}
-			else {
-				Y = 10;
-			}
-			Input = fluck(Input);
-			double ans = sum(Input);
-			String an = ""+ans;
-			add(Y, X, an, ans);
+			
 		}
 		else if(Input.contains("avg") || Input.contains("avg")) {
 			System.out.println("Averaging");
-			int X = AtoB(Input.substring(0, 1));
-			int Y = 7;
-			if(Input.length() == 2) {
-				Y = Integer.parseInt(Input.substring(1, 2));
-			}
-			else {
-				Y = 10;
-			}
-			Input = fluck(Input);
-			double ans = avg(Input);
-			String an = ""+ans;
-			add(Y, X, an, ans);
+			
 		}
 		else if(Input.length() <= 3 && (Input.contains("A") || Input.contains("B") || Input.contains("C") || Input.contains("D") || Input.contains("E") || Input.contains("F") || Input.contains("G"))) {
 			System.out.println("Check Mark 2");
@@ -283,6 +236,13 @@ public static double avg(String in) {
 	public static void add(int X, int Y, String info, double GoodMath) {
 		System.out.println("infor"+info);
 		System.out.println("Math"+GoodMath);
+		//if(X == 10) {
+		//	X = 9;
+		//}
+		//if(Y == 10) {
+		//	Y = 9;
+		//}
+		//System.out.println(X+" " +Y);
 		Sheet[X-1][Y] = info;
 		ExtraSheet[X-1][Y] = info;
 		MathSheet[X-1][Y] = GoodMath;

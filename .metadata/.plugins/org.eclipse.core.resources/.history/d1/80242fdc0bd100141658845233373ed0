@@ -47,10 +47,9 @@ public class Spreadsheet extends Operations{
 	}
 	public static double sum(String in) {
 		int m = in.indexOf("m");
-		int das = in.indexOf("-");
 		int X1 = AtoB(in.substring(m+1, m+2));
 		int Y1;
-		int X2 = AtoB(in.substring(das+1, das+2));
+		int X2;
 		int Y2;
 		System.out.println("x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
 		return 0;
