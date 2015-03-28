@@ -1,0 +1,49 @@
+package GameState;
+import java.awt.*;
+import TileMap.Background;
+public class MenuState extends GameState {
+	private Background bg;
+	private int currentChoice = 0;
+	private String[] Options = {"Start", "Help", "Quit"};
+	private Color titleColor;
+	private Font titleFont;
+	private Font font;
+	public MenuState(GameStateManager gsm) {
+		this.gsm = gsm;
+		try {
+			
+			bg = new Background("/Background/MenuBackGround.png", 1);
+			bg.setVector(-0.1, 0);
+			titleColor = new Color(128, 0, 0);
+			titleFont = new Font("Century Gothic", Font.PLAIN, 28);
+			font = new Font("Arial",Font.PLAIN, 12);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void init() { //25 MINTSE!   https://www.youtube.com/watch?v=9dzhgsVaiSo
+		
+	}
+	public void update() {
+		bg.update();
+	}
+	public void draw(Graphics2D g) {
+		
+		//draw bg
+		bg.draw(g);
+		
+		//draw color
+		g.setColor(titleColor);
+		g.setFont(titleFont);
+		g.drawString("Explore");
+		
+	}
+	public void keyPressed(int k) {
+		
+	}
+	public void keyReleased(int k) {
+	
+	}
+}

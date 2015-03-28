@@ -1,0 +1,27 @@
+package TileMap;
+import java.awt.*;
+import java.awt.image.*;
+
+public class TileMap {
+
+	//position
+	private double x;
+	private double y;
+	
+	//bounds
+	private double xmin;
+	private double ymin;
+	private double xmax;
+	private double ymax;
+	
+	private double tween;
+	
+	//map
+	private int[][] map;
+	private int tileSize;
+	private int numRows;
+	private int numCols;
+	private int width;
+	private int height;
+	
+}
