@@ -12,6 +12,7 @@ public class Spreadsheet extends Operations{
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 7; j++) {
 				MathSheet[i][j] = 0;
+				Altered[i][j] = "";
 			}
 		}
 	}
@@ -43,22 +44,59 @@ public class Spreadsheet extends Operations{
 				l = temp1+temp2;
 			}
 		}
+		System.out.println("Flucking:"+l+":");
 		return l;
 	}
 	public static double sum(String in) {
 		int m = in.indexOf("m");
 		int das = in.indexOf("-");
+		int as = in.indexOf(")");
 		int X1 = AtoB(in.substring(m+1, m+2));
-		int Y1;
+		int Y1 = Integer.parseInt(in.substring(m+2, das));
 		int X2 = AtoB(in.substring(das+1, das+2));
-		int Y2;
-		System.out.println("x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
-		return 0;
+		int Y2 = Integer.parseInt(in.substring(das+2, as));
+		System.out.println("|"+"x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
+		int Xleng = X2-X1;System.out.println("x"+Xleng);
+		int Yleng = Y2-Y1;System.out.println("y"+Yleng);
+		double theSum = 0;
+		for(int i = 0; i < Yleng+1; i++) {
+			for(int j = 0; j < Xleng+1; j++) {
+				System.out.println("for");
+				System.out.println("i"+i+"j"+j+Altered[i][j]);
+				if(Altered[i][j].equals("a")) {
+					theSum = theSum+MathSheet[i][j];
+				}
+			}
+		}
+		return theSum;
 	}
 public static double avg(String in) {
-		int ;
-		int ;
-		return 0;
+	int m = in.indexOf("g");
+	int das = in.indexOf("-");
+	int as = in.indexOf(")");
+	int X1 = AtoB(in.substring(m+1, m+2));
+	int Y1 = Integer.parseInt(in.substring(m+2, das));
+	int X2 = AtoB(in.substring(das+1, das+2));
+	int Y2 = Integer.parseInt(in.substring(das+2, as));
+	System.out.println("|"+"x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
+	int Xleng = X2-X1;
+	int Yleng = Y2-Y1;
+	int div = 0;
+	double theAvg = 0;
+	for(int i = 0; i < Yleng+1; i++) {
+		for(int j = 0; j < Xleng+1; j++) {
+			System.out.println("for");
+			System.out.println("i"+i+"j"+j+Altered[i][j]);
+			if(Altered[i][j].equals("a")) {
+				theAvg = theAvg+MathSheet[i][j];
+				div++;
+			}
+		}
+	}
+	if(div == 0) {
+	div = 1;	
+	}
+		return (theAvg/div);
 	}
 	//Formulas
 	public static void Store(String j, int y, int x) {
@@ -143,6 +181,7 @@ public static double avg(String in) {
 			else {
 				Y = 10;
 			}
+			System.out.println("YYY"+Y);
 			Input = fluck(Input);
 			double ans = sum(Input);
 			String an = ""+ans;
@@ -152,12 +191,14 @@ public static double avg(String in) {
 			System.out.println("Averaging");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
-			if(Input.length() == 2) {
+			String temps = Input.substring(0, Input.indexOf(" "));
+			if(temps.length() == 2) {
 				Y = Integer.parseInt(Input.substring(1, 2));
 			}
 			else {
 				Y = 10;
 			}
+			System.out.println("YYY"+Y);
 			Input = fluck(Input);
 			double ans = avg(Input);
 			String an = ""+ans;
@@ -279,6 +320,7 @@ public static double avg(String in) {
 		ExtraSheet[X][Y] = "";
 		MathSheet[X][Y] = 0;
 		Formulas[X][Y] = "";
+		Altered[X][Y] = "";
 	}
 	public static void add(int X, int Y, String info, double GoodMath) {
 		System.out.println("infor"+info);
@@ -306,6 +348,7 @@ public static double avg(String in) {
 				ExtraSheet[i][j] = "";
 				MathSheet[i][j] = 0;
 				Formulas[i][j] = "";
+				Altered[i][j] = "";
 			}
 		}
 		

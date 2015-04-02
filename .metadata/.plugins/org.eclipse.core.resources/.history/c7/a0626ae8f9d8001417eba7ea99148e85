@@ -1,0 +1,397 @@
+package Spread;
+
+public class Spreadsheet extends Operations{
+	static String[][] Sheet;
+	static String[][] ExtraSheet;
+	static double[][] MathSheet = new double[10][7];
+	static String[][] Formulas = new String[10][7];
+	static String[][] Altered = new String[10][7];
+	Spreadsheet(String[][] Sheat) {
+		Sheet = Sheat;
+		ExtraSheet = Sheat;
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 7; j++) {
+				MathSheet[i][j] = 0;
+			}
+		}
+	}
+	public static void printSheet() {
+		apply();
+		FixIt();
+		Line(1);
+		Line(0);
+		Cells Gabe = new Cells(Sheet, 1);
+		for(int i = 1; i < 11; i++) {
+			Gabe.Cel(i);
+			Line(0);
+		}
+	}
+	public static void printCell(int x, int y) {
+		System.out.println("Printing Cell....");
+		String i = ""+MathSheet[x-1][y];
+		if(i.contains("E")) {System.out.println(MathSheet[x-1][y]);}
+		else {System.out.println(ExtraSheet[x-1][y]);}
+	}
+	//Sum/Avg stuff
+	public static String fluck(String l) {
+		String temp1 = "";
+		String temp2 = "";
+		for(int i = 0; i < l.length(); i++) {
+			if(l.substring(i, i+1).equals(" ")) {
+				temp1 = l.substring(0, i); System.out.println("t1"+temp1);
+				temp2 = l.substring(i+1);  System.out.println("t2"+temp2);
+				l = temp1+temp2;
+			}
+		}
+		System.out.println("Flucking:"+l+":");
+		return l;
+	}
+	public static double sum(String in) {
+		int m = in.indexOf("m");
+		int das = in.indexOf("-");
+		int as = in.indexOf(")");
+		int X1 = AtoB(in.substring(m+1, m+2));
+		int Y1 = Integer.parseInt(in.substring(m+2, das));
+		int X2 = AtoB(in.substring(das+1, das+2));
+		int Y2 = Integer.parseInt(in.substring(das+2, as));
+		System.out.println("|"+"x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
+		int Xleng = X2-X1;
+		int Yleng = Y2-Y1;
+		double theSum = 0;
+		for(int i = 0; i < Yleng; i++) {
+			for(int j = 0; j < Xleng; j++) {
+				if(Altered[j][i].equals("a")) {
+					theSum = theSum+MathSheet[j][i];
+				}
+			}
+		}
+		return theSum;
+	}
+public static double avg(String in) {
+	int m = in.indexOf("m");
+	int das = in.indexOf("-");
+	int as = in.indexOf(")");
+	int X1 = AtoB(in.substring(m+1, m+2));
+	int Y1 = Integer.parseInt(in.substring(m+2, das));
+	int X2 = AtoB(in.substring(das+1, das+2));
+	int Y2 = Integer.parseInt(in.substring(das+2, as));
+	System.out.println("|"+"x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
+	int Xleng = X2-X1;
+	int Yleng = Y2-Y1;
+	int div = 1;
+	double theAvg = 0;
+	for(int i = 0; i < Yleng; i++) {
+		for(int j = 0; j < Xleng; j++) {
+			if(Altered[j][i].equals("a")) {
+				theAvg = theAvg+MathSheet[j][i];
+				div++;
+			}
+		}
+	}
+		return theAvg/div;
+	}
+	//Formulas
+	public static void Store(String j, int y, int x) {
+		System.out.println("store");
+		Formulas[x-1][y] = j;
+		System.out.println("jokks"+Formulas[x-1][y]);
+		apply();
+	}
+	public static void apply() {
+		System.out.println("Applying Some Changes...");
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 7; j++) {
+				if(Formulas[i][j].contains("A") || Formulas[i][j].contains("B") || Formulas[i][j].contains("C") || Formulas[i][j].contains("D") || Formulas[i][j].contains("E") || Formulas[i][j].contains("F") || Formulas[i][j].contains("G")) {//if it contains something
+					System.out.println("iner");
+					String gh = " ("+replacer(Formulas[i][j])+")";
+					System.out.println("gh"+gh);
+					double klo = UberSolve(gh);
+					MathSheet[i][j] = klo;
+					Sheet[i][j] = ""+klo;
+					ExtraSheet[i][j] = ""+klo;
+				}
+			}
+		}
+	}
+	public int u = 0;
+	public static String replacer(String formulas) {
+		String va = "";
+		for(int k = 0; k < formulas.length()-1; k++) {
+			String y = formulas.substring(k, k+2);
+			for(int i = 0; i < 10; i++) {
+				for(int j = 0; j < 7; j++) {
+					va = AtoB(j)+(i+1);
+					//System.out.println("vas"+va);
+					if(y.equals(va)) {
+						if(va.equals("A1")||va.equals("B1")||va.equals("C1")||va.equals("D1")||va.equals("E1")||va.equals("F1")||va.equals("G1")){
+							String z = formulas.substring(k+2, k+3);
+							if(z.equals("0")) {
+								String p1 = formulas.substring(0, k);
+								String p2 = formulas.substring(k+3);
+								formulas = p1+MathSheet[9][j]+p2;
+								System.out.println("from"+formulas);
+							}
+							else {
+								String p1 = formulas.substring(0, k);
+								String p2 = formulas.substring(k+2);
+								formulas = p1+MathSheet[i][j]+p2;
+								System.out.println("from"+formulas);
+							}
+						}else{
+						String p1 = formulas.substring(0, k);
+						String p2 = formulas.substring(k+2);
+						formulas = p1+MathSheet[i][j]+p2;
+						System.out.println("from"+formulas);
+						}
+					}
+				}
+			}
+		}
+	return formulas;
+	}
+	//RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT 
+	public static void Decipher(String Input) {
+		boolean duck = false;
+		boolean Text = false;
+		boolean Para = false;
+		if(Input.contains("\"")) {
+			System.out.println("Screw");
+			Text = true;
+		}
+		if(Input.contains("(") && Input.contains(")")) {
+			Para = true;
+		}
+		if(Input.contains("sum") || Input.contains("Sum")) {
+			System.out.println("summing");
+			System.out.println("y"+(Input.substring(0, Input.indexOf(" ")))+":");
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			String temps = Input.substring(0, Input.indexOf(" "));
+			if(temps.length() == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 10;
+			}
+			Input = fluck(Input);
+			double ans = sum(Input);
+			String an = ""+ans;
+			add(Y, X, an, ans);
+		}
+		else if(Input.contains("avg") || Input.contains("avg")) {
+			System.out.println("Averaging");
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.length() == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 10;
+			}
+			Input = fluck(Input);
+			double ans = avg(Input);
+			String an = ""+ans;
+			add(Y, X, an, ans);
+		}
+		else if(Input.length() <= 3 && (Input.contains("A") || Input.contains("B") || Input.contains("C") || Input.contains("D") || Input.contains("E") || Input.contains("F") || Input.contains("G"))) {
+			System.out.println("Check Mark 2");
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.length() == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 10;
+			}
+			printCell(Y, X);
+		}
+		else if(Para) {
+			System.out.println("Paras");
+			String hl = Input.substring(3);
+			if(!hl.contains("A") && !hl.contains("B") && !hl.contains("C") && !hl.contains("D") && !hl.contains("E") && !hl.contains("F") && !hl.contains("G")) {
+			double infor = Operate(Input, Sheet);
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 10;
+			}
+			String J = ""+infor; 
+			add(Y, X, J, infor);
+			}
+			else if(hl.contains("A") || hl.contains("B") || hl.contains("C") || hl.contains("D") || hl.contains("E") || hl.contains("F") || hl.contains("G")) {
+				System.out.println("On tracks");
+				int j = Input.indexOf("(")+1;
+				int k = Input.indexOf(")");
+				System.out.println(Input.substring(j, k));
+				String kol = Input.substring(j, k);
+				int X = AtoB(Input.substring(0, 1));
+				int Y = 7;
+				if(Input.indexOf(" ") == 2) {
+					Y = Integer.parseInt(Input.substring(1, 2));
+				}
+				else {
+					Y = 10;
+				}
+				System.out.println("x:"+X+"y:"+Y+"kol"+kol);
+				Store(kol, X, Y);
+			}
+		}
+		else if(Input.length() > 5 && Input.substring(4, 5).equals("=") && Text) {
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 10;
+			}
+			int qout = Input.indexOf("\"");
+			int quot2 = Input.indexOf("\"", qout+1);
+			String word = Input.substring(qout+1,quot2);
+			add(Y, X, word, 0);
+			System.out.println(X+" " +Y);
+		}
+		else if(Input.length() > 4 && Input.substring(3, 4).equals("=") && Text) {
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else {
+				Y = 10;
+			}
+			int qout = Input.indexOf("\"");
+			int quot2 = Input.indexOf("\"", qout+1);
+			String word = Input.substring(qout+1,quot2);
+			//System.out.println(X+" " +Y);
+			add(Y, X, word, 0);
+		}
+		else if(Input.length() > 5 && (Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) && !Input.contains("/") && !Input.contains("+") && !Input.contains("-") && !Input.contains("*")) {// C1 = 12.1
+			String hl = Input.substring(3);
+			if(!hl.contains("A") || !hl.contains("B") || !hl.contains("C") || !hl.contains("D") || !hl.contains("E") || !hl.contains("F") || !hl.contains("G")) {
+			int Eqa = Input.indexOf("=");
+			int X = AtoB(Input.substring(0, 1));
+			int Y = 7;
+			if(Input.indexOf(" ") == 2) {
+				System.out.println("Chex");
+				Y = Integer.parseInt(Input.substring(1, 2));
+			}
+			else if(Input.length() > 3 && Input.substring(1, 3) == "10") {
+				Y = 10;
+			}
+			else {
+				Y = 10;
+			}
+			double inf = Double.parseDouble(Input.substring(Eqa+2));
+			String in = Input.substring(Eqa+2);
+			//System.out.println("PICK EM");
+			System.out.println(X+" "+Y);
+			add(Y, X, in, inf);
+			}
+			else if(hl.contains("A") || hl.contains("B") || hl.contains("C") || hl.contains("D") || hl.contains("E") || hl.contains("F") || hl.contains("G")) {
+				System.out.println("somehow");
+			}
+			else {
+				return;
+			}
+		}
+		else if(duck) {
+			System.out.println("Chex PRev");
+		}
+		apply();
+	}
+	//RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT
+	public static void clear(int X, int Y) {
+		Sheet[X][Y] = "            ";
+		ExtraSheet[X][Y] = "";
+		MathSheet[X][Y] = 0;
+		Formulas[X][Y] = "";
+	}
+	public static void add(int X, int Y, String info, double GoodMath) {
+		System.out.println("infor"+info);
+		System.out.println("Math"+GoodMath);
+		Sheet[X-1][Y] = info;
+		ExtraSheet[X-1][Y] = info;
+		MathSheet[X-1][Y] = GoodMath;
+		Altered[X-1][Y] = "a";
+		FixIt();
+		System.out.println(Sheet[9][0]);
+	}
+	public static void printOut() {
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 7; j++) {
+				System.out.println(Sheet[i][j]);
+				System.out.println(ExtraSheet[i][j]);
+				System.out.println(MathSheet[i][j]);
+			}
+		}
+	}
+	public static void clearall() {
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 7; j++) {
+				Sheet[i][j] = "            ";
+				ExtraSheet[i][j] = "";
+				MathSheet[i][j] = 0;
+				Formulas[i][j] = "";
+			}
+		}
+		
+	}
+	public static void Line(int Selc) {
+		if(Selc == 0) {
+		System.out.println("------------+------------+------------+------------+------------+------------+------------+------------+");
+		}
+		else if(Selc == 1) {
+		System.out.println("            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |");	
+		}
+		
+		}
+	public static int AtoB(String Let) {
+		if(Let.equals("A")) {
+			return 0;
+		}
+		else if(Let.equals("B")) {
+			return 1;
+		}
+		else if(Let.equals("C")) {
+			return 2;
+		}
+		else if(Let.equals("D")) {
+			return 3;
+		}
+		else if(Let.equals("E")) {
+			return 4;
+		}
+		else if(Let.equals("F")) {
+			return 5;
+		}
+		else if(Let.equals("G")) {
+			return 6;
+		}
+		else {
+			return 7;
+		}
+		
+		
+	}
+	public static void FixIt() {
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 7; j++) {
+				if(Sheet[i][j].length() > 12) {
+					Sheet[i][j] = Sheet[i][j].substring(0, 11);
+				}
+				else if(Sheet[i][j].length() < 12) {
+					int k = Sheet[i][j].length();
+					k = 12-k;
+					for(int o = 0; o < k; o++) {
+						Sheet[i][j] = Sheet[i][j]+" ";
+					}
+				}
+				
+			}
+		}
+	}
+	}
