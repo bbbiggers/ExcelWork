@@ -1,7 +1,6 @@
 package Spread;
 
 public class Spreadsheet extends Operations{
-	private static boolean Testing = false;
 	static String[][] Sheet;
 	static String[][] ExtraSheet;
 	static double[][] MathSheet = new double[10][7];
@@ -40,12 +39,12 @@ public class Spreadsheet extends Operations{
 		String temp2 = "";
 		for(int i = 0; i < l.length(); i++) {
 			if(l.substring(i, i+1).equals(" ")) {
-				temp1 = l.substring(0, i); if(Testing) {System.out.println("t1"+temp1);}
-				temp2 = l.substring(i+1);  if(Testing) {System.out.println("t2"+temp2);}
+				temp1 = l.substring(0, i); System.out.println("t1"+temp1);
+				temp2 = l.substring(i+1);  System.out.println("t2"+temp2);
 				l = temp1+temp2;
 			}
 		}
-		if(Testing) {System.out.println("Flucking:"+l+":");}
+		System.out.println("Flucking:"+l+":");
 		return l;
 	}
 	public static double sum(String in) {
@@ -56,14 +55,14 @@ public class Spreadsheet extends Operations{
 		int Y1 = Integer.parseInt(in.substring(m+2, das));
 		int X2 = AtoB(in.substring(das+1, das+2));
 		int Y2 = Integer.parseInt(in.substring(das+2, as));
-		if(Testing) {System.out.println("|"+"x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");}
-		int Xleng = X2-X1;if(Testing) {System.out.println("x"+Xleng);}
-		int Yleng = Y2-Y1;if(Testing) {System.out.println("y"+Yleng);}
+		System.out.println("|"+"x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
+		int Xleng = X2-X1;System.out.println("x"+Xleng);
+		int Yleng = Y2-Y1;System.out.println("y"+Yleng);
 		double theSum = 0;
 		for(int i = 0; i < Yleng+1; i++) {
 			for(int j = 0; j < Xleng+1; j++) {
-				if(Testing) {System.out.println("for");}
-				if(Testing) {System.out.println("i"+i+"j"+j+Altered[i][j]);}
+				System.out.println("for");
+				System.out.println("i"+i+"j"+j+Altered[i][j]);
 				if(Altered[i][j].equals("a")) {
 					theSum = theSum+MathSheet[i][j];
 				}
@@ -79,15 +78,15 @@ public static double avg(String in) {
 	int Y1 = Integer.parseInt(in.substring(m+2, das));
 	int X2 = AtoB(in.substring(das+1, das+2));
 	int Y2 = Integer.parseInt(in.substring(das+2, as));
-	if(Testing) {System.out.println("|"+"x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");}
+	System.out.println("|"+"x1"+X1+"y1"+Y1+"x2"+X2+"y2"+Y2+"|");
 	int Xleng = X2-X1;
 	int Yleng = Y2-Y1;
 	int div = 0;
 	double theAvg = 0;
 	for(int i = 0; i < Yleng+1; i++) {
 		for(int j = 0; j < Xleng+1; j++) {
-			if(Testing) {System.out.println("for");}
-			if(Testing) {System.out.println("i"+i+"j"+j+Altered[i][j]);}
+			System.out.println("for");
+			System.out.println("i"+i+"j"+j+Altered[i][j]);
 			if(Altered[i][j].equals("a")) {
 				theAvg = theAvg+MathSheet[i][j];
 				div++;
@@ -101,7 +100,7 @@ public static double avg(String in) {
 	}
 	//Formulas
 	public static void Store(String j, int y, int x) {
-		if(Testing) {System.out.println("store");}
+		System.out.println("store");
 		Formulas[x-1][y] = j;
 		System.out.println("jokks"+Formulas[x-1][y]);
 		apply();
@@ -164,15 +163,15 @@ public static double avg(String in) {
 		boolean Text = false;
 		boolean Para = false;
 		if(Input.contains("\"")) {
-			if(Testing) {System.out.println("Screw");}
+			System.out.println("Screw");
 			Text = true;
 		}
 		if(Input.contains("(") && Input.contains(")")) {
 			Para = true;
 		}
 		if(Input.contains("sum") || Input.contains("Sum")) {
-			if(Testing) {System.out.println("summing");}
-			if(Testing) {System.out.println("y"+(Input.substring(0, Input.indexOf(" ")))+":");}
+			System.out.println("summing");
+			System.out.println("y"+(Input.substring(0, Input.indexOf(" ")))+":");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
 			String temps = Input.substring(0, Input.indexOf(" "));
@@ -182,14 +181,14 @@ public static double avg(String in) {
 			else {
 				Y = 10;
 			}
-			if(Testing) {System.out.println("YYY"+Y);}
+			System.out.println("YYY"+Y);
 			Input = fluck(Input);
 			double ans = sum(Input);
 			String an = ""+ans;
 			add(Y, X, an, ans);
 		}
 		else if(Input.contains("avg") || Input.contains("avg")) {
-			if(Testing) {System.out.println("Averaging");}
+			System.out.println("Averaging");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
 			String temps = Input.substring(0, Input.indexOf(" "));
@@ -199,14 +198,14 @@ public static double avg(String in) {
 			else {
 				Y = 10;
 			}
-			if(Testing) {System.out.println("YYY"+Y);}
+			System.out.println("YYY"+Y);
 			Input = fluck(Input);
 			double ans = avg(Input);
 			String an = ""+ans;
 			add(Y, X, an, ans);
 		}
 		else if(Input.length() <= 3 && (Input.contains("A") || Input.contains("B") || Input.contains("C") || Input.contains("D") || Input.contains("E") || Input.contains("F") || Input.contains("G"))) {
-			if(Testing) {System.out.println("Check Mark 2");}
+			System.out.println("Check Mark 2");
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
 			if(Input.length() == 2) {
@@ -218,7 +217,7 @@ public static double avg(String in) {
 			printCell(Y, X);
 		}
 		else if(Para) {
-			if(Testing) {System.out.println("Paras");}
+			System.out.println("Paras");
 			String hl = Input.substring(3);
 			if(!hl.contains("A") && !hl.contains("B") && !hl.contains("C") && !hl.contains("D") && !hl.contains("E") && !hl.contains("F") && !hl.contains("G")) {
 			double infor = Operate(Input, Sheet);
@@ -234,7 +233,7 @@ public static double avg(String in) {
 			add(Y, X, J, infor);
 			}
 			else if(hl.contains("A") || hl.contains("B") || hl.contains("C") || hl.contains("D") || hl.contains("E") || hl.contains("F") || hl.contains("G")) {
-				if(Testing) {System.out.println("On tracks");}
+				System.out.println("On tracks");
 				int j = Input.indexOf("(")+1;
 				int k = Input.indexOf(")");
 				System.out.println(Input.substring(j, k));
@@ -247,7 +246,7 @@ public static double avg(String in) {
 				else {
 					Y = 10;
 				}
-				if(Testing) {System.out.println("x:"+X+"y:"+Y+"kol"+kol);}
+				System.out.println("x:"+X+"y:"+Y+"kol"+kol);
 				Store(kol, X, Y);
 			}
 		}
@@ -264,7 +263,7 @@ public static double avg(String in) {
 			int quot2 = Input.indexOf("\"", qout+1);
 			String word = Input.substring(qout+1,quot2);
 			add(Y, X, word, 0);
-			if(Testing) {System.out.println(X+" " +Y);}
+			System.out.println(X+" " +Y);
 		}
 		else if(Input.length() > 4 && Input.substring(3, 4).equals("=") && Text) {
 			int X = AtoB(Input.substring(0, 1));
@@ -288,7 +287,7 @@ public static double avg(String in) {
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
 			if(Input.indexOf(" ") == 2) {
-				if(Testing) {System.out.println("Chex");}
+				System.out.println("Chex");
 				Y = Integer.parseInt(Input.substring(1, 2));
 			}
 			else if(Input.length() > 3 && Input.substring(1, 3) == "10") {
@@ -300,18 +299,18 @@ public static double avg(String in) {
 			double inf = Double.parseDouble(Input.substring(Eqa+2));
 			String in = Input.substring(Eqa+2);
 			//System.out.println("PICK EM");
-			if(Testing) {System.out.println(X+" "+Y);}
+			System.out.println(X+" "+Y);
 			add(Y, X, in, inf);
 			}
 			else if(hl.contains("A") || hl.contains("B") || hl.contains("C") || hl.contains("D") || hl.contains("E") || hl.contains("F") || hl.contains("G")) {
-				if(Testing) {System.out.println("somehow");}
+				System.out.println("somehow");
 			}
 			else {
 				return;
 			}
 		}
 		else if(duck) {
-			if(Testing) {System.out.println("Chex PRev");}
+			System.out.println("Chex PRev");
 		}
 		apply();
 	}
@@ -324,14 +323,14 @@ public static double avg(String in) {
 		Altered[X][Y] = "";
 	}
 	public static void add(int X, int Y, String info, double GoodMath) {
-		if(Testing) {System.out.println("infor"+info);}
-		if(Testing) {System.out.println("Math"+GoodMath);}
+		System.out.println("infor"+info);
+		System.out.println("Math"+GoodMath);
 		Sheet[X-1][Y] = info;
 		ExtraSheet[X-1][Y] = info;
 		MathSheet[X-1][Y] = GoodMath;
 		Altered[X-1][Y] = "a";
 		FixIt();
-		if(Testing) {System.out.println(Sheet[9][0]);}
+		System.out.println(Sheet[9][0]);
 	}
 	public static void printOut() {
 		for(int i = 0; i < 10; i++) {

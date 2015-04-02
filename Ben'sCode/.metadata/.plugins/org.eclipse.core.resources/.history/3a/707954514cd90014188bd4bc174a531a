@@ -98,7 +98,7 @@ private static boolean Testing = false;
 				return Double.parseDouble(Equa);
 				}
 			for(int KKK = OperationAmount; KKK > 1; KKK--) {
-				if(Testing) {System.out.println("Is it going hereg"+Equa);}
+				if(Testing) {System.out.println("Is it going hereg"+Equa)}
 				if(Equa.contains(" ")) {
 				Equa = fluck(Equa);	
 				}

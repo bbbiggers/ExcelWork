@@ -3,7 +3,6 @@ package Spread;
 import java.util.ArrayList;
 
 public class Operations {
-private static boolean Testing = false;
 
 	public static double Operate(String Equ, String[][] Sheat) {
 		int HasLocation = 0;
@@ -66,8 +65,8 @@ private static boolean Testing = false;
 	}
 	public static int SecondOperation(String i) {
 		int lo  = 0;
-		lo = FindOperation(i); if(Testing) {System.out.println("G"+lo);}
-		lo = FindOperation(i.substring(lo+1))+lo+1;if(Testing){ System.out.println("G"+lo);}
+		lo = FindOperation(i); System.out.println("G"+lo);
+		lo = FindOperation(i.substring(lo+1))+lo+1; System.out.println("G"+lo);
 		return lo;
 	}
 	public static String fluck(String l) {
@@ -75,8 +74,8 @@ private static boolean Testing = false;
 		String temp2 = "";
 		for(int i = 0; i < l.length(); i++) {
 			if(l.substring(i, i+1).equals(" ")) {
-				temp1 = l.substring(0, i);
-				temp2 = l.substring(i+1);
+				temp1 = l.substring(0, i); System.out.println("t1"+temp1);
+				temp2 = l.substring(i+1);  System.out.println("t2"+temp2);
 				l = temp1+temp2;
 			}
 		}
@@ -90,7 +89,7 @@ private static boolean Testing = false;
 			int k = i.indexOf(")");
 		 	String Equa = i.substring(j, k); //3+334+346-232/2
 			int OperationAmount = OpAmt(Equa); //4 
-			if(Testing) {System.out.println(OperationAmount+"op");}
+			System.out.println(OperationAmount+"op");
 			if(OperationAmount == 1) {
 			return Solve(Equa);
 			}
@@ -98,18 +97,18 @@ private static boolean Testing = false;
 				return Double.parseDouble(Equa);
 				}
 			for(int KKK = OperationAmount; KKK > 1; KKK--) {
-				if(Testing) {System.out.println("Is it going hereg"+Equa);}
+				System.out.println("Is it going hereg"+Equa);
 				if(Equa.contains(" ")) {
 				Equa = fluck(Equa);	
 				}
-				if(Testing) {System.out.println("Is it going there"+Equa);}
+				System.out.println("Is it going there"+Equa);
 				if(KKK == OperationAmount) {
-					if(Testing) {System.out.println("po"+Equa.substring(0, FindOperation(Equa)));}
+					System.out.println("po"+Equa.substring(0, FindOperation(Equa)));
 					//System.out.println("this stupid thins"+Solve(Equa.substring(0, FindOperation(Equa))));
 					vo = ""+Solve(Equa.substring(0, SecondOperation(Equa)));
 					Equa = Equa.substring(SecondOperation(Equa)); //System.out.println("Is it going here"+Equa);
 				}
-				if(Testing) {System.out.println(vo+"Volo");}
+				System.out.println(vo+"Volo");
 				if(OpAmt(Equa) == 1) {
 					vo = ""+Solve(vo+Equa);
 				}
@@ -122,12 +121,12 @@ private static boolean Testing = false;
 			return Value;
 		}
 		else {
-			if(Testing) {System.out.println("Vo");}
+			System.out.println("Vo");
 			return 0.0;
 		}
 	}
 	public static double Solve(String i) {
-		if(Testing) {System.out.println("the i in solve:"+i+":");}
+		System.out.println("the i in solve:"+i+":");
 		int j = 0;
 		int k = i.length();
 		if(i.contains("+")) {
@@ -163,7 +162,7 @@ private static boolean Testing = false;
 			double SecondNumber = Double.parseDouble(i.substring(oper+1, k));
 			return (FirstNumber-SecondNumber);
 		}
-		else {System.out.println("Need Help?"); return 0;}
+		else {System.out.println("Need Help? j"); return 0;}
 	}
 	public static String AtoB(int Let) {
 		if(Let == 0) {
