@@ -13,7 +13,7 @@ public class TextExcel{
 		Spreadsheet Shet = new Spreadsheet(Sheet);
 		Shet.clearall();
 		String Exit = "NO"; 
-		while(!Exit.equals("exit")){
+		while(!Exit.equals("exit") || !Exit.equals("Exit")){
 		System.out.println("enter a command:");
 		Exit = Imput.nextLine();
 		//System.out.println(Exit.substring(0, 5));
@@ -23,23 +23,33 @@ public class TextExcel{
 		else if(Exit.equals("clear all")||Exit.equals("Clear All")||Exit.equals("Clear all")||Exit.equals("clear All")) {
 			Shet.clearall();
 		}
-		else if(Exit.equals("help")||Exit.equals("Help")) {
-			
-			if(helper == 0) {
-			System.out.println("When in Doubt take the spaces Out");
-			System.out.println("To Clear All type\"Clear All\"");
-			System.out.println("To Add type\"Add\"");
-			System.out.println("To Clear type \"Clear\"and the location \"A1\"");
-			System.out.println("For more help type \"Help\"");
+		else if(Exit.contains("help")||Exit.contains("Help")) {
+			if(Exit.contains("clear") || Exit.contains("Clear")) {
+				System.out.println("To Clear All type\"Clear All\"");
+				System.out.println("To Clear type\"clear Location\"");
 			}
-			else if(helper == 1) {
-				System.out.println("**!EXTRA HELP!**");
-				System.out.println("Just type\"Clear All\" To CLEAR!");
-				System.out.println("To Add type\"Add\" <--- Add things here");
-				System.out.println("To Clear type \"Clear\"and the location \"A1\"");
-				System.out.println("For more help type \"Help\"");
+			else if(Exit.contains("operations") || Exit.contains("Operations")) {
+				System.out.println("To subtract type \"Location = ( Number or Location - Number or Location )\"");
+				System.out.println("To add type \"Location = ( Number or Location + Number or Location )\"");
+				System.out.println("To divide type \"Location = ( Number or Location / Number or Location )\"");
+				System.out.println("To multiply type \"Location = ( Number or Location * Number or Location )\"");	
+				System.out.println("You can use as many operations as you like");
 			}
-			else if(helper > 1) {
+			else if(Exit.contains("sum/average") || Exit.contains("Sum/Average") || Exit.contains("sum/Average") || Exit.contains("Sum/average")) {
+				System.out.println("To find the Sum a range of cells from a top-left corner to a bottom-right corner");
+				System.out.println("Type \"Location = ( sum Location1 - Location2 )\"");
+				System.out.println("To find the Average a range of cells from a top-left corner to a bottom-right corner");
+				System.out.println("Type \"Location = ( avg Location1 - Location2 )\"");
+			}
+			else if(helper < 5) {
+			System.out.println("For help on clearing type \"help clear\"");
+			System.out.println("For help on Operations type \"help operations\"");
+			System.out.println("For help on Sum or Average type \"help sum/average\"");
+			System.out.println("For info on a single Cell Type it's \"Location\"");
+			System.out.println("To print the entire SpreadSheet Type \"print\"");
+			System.out.println("To exit Type \"exit\"");
+			}
+			else if(helper > 5) {
 				System.out.println("Sorry,\nBut the General Manager\nhas Anounced that we are\nClosing Down!");
 			}
 			helper++;
@@ -52,8 +62,9 @@ public class TextExcel{
 			int a = 0;
 			int b = Integer.parseInt(B);
 			a = Shet.AtoB(A);
-			if(b < 11 && a < 8 && a > 0 && b > 0) {
-			Shet.clear(b, a);
+			if(b < 11 && a < 8 && a >= 0 && b >= 0) {
+			
+				Shet.clear(b, a);
 			}
 			else {
 				System.out.println("Not a valid point!");
