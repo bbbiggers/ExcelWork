@@ -37,17 +37,17 @@ private int[] List;
 	public int sumUpper(int n) {
 		int s = 0;
 		ArrayList<Integer> Up = getUpper(n);
-		for(int k : Up) {
-			s = s+k;
+		for(int i = 0; i < Up.size(); i++) {
+			s = s+(Up.get(i));
 		}
 		return s;
 	}
 	public int maxEven() {
 		int m = 0;
 		ArrayList<Integer> Ev = getEven();
-		for(int k : Ev) {
-			if(m < k) {
-				m = k;
+		for(int i = 0; i < Ev.size(); i++) {
+			if(m < Ev.get(i)) {
+				m = Ev.get(i);
 			}
 		}
 		return m;

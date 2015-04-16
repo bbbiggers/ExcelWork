@@ -29,28 +29,13 @@ private int[] List;
 			for(int i = 0; i < Y.size(); i++) {
 				if((Y.get(i) % 2) != 0) {
 					Y.remove(i);
+					//i--;
 				}
 			}
 		return Y;
 	}
 	
-	public int sumUpper(int n) {
-		int s = 0;
-		ArrayList<Integer> Up = getUpper(n);
-		for(int k : Up) {
-			s = s+k;
-		}
-		return s;
-	}
-	public int maxEven() {
-		int m = 0;
-		ArrayList<Integer> Ev = getEven();
-		for(int k : Ev) {
-			if(m < k) {
-				m = k;
-			}
-		}
-		return m;
-	}
+	
+	
 	
 }
