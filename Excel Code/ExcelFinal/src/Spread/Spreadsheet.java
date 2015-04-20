@@ -31,8 +31,54 @@ public class Spreadsheet extends Operations{
 	public static void printCell(int x, int y) {
 		System.out.println("Printing Cell....");
 		String i = ""+MathSheet[x-1][y];
-		if(i.contains("E")) {System.out.println(MathSheet[x-1][y]);}
-		else {System.out.println(ExtraSheet[x-1][y]);}
+		if(i.contains("E")) {
+			String Y = AtoB(y);
+			String k = Y+x+" = "+MathSheet[x-1][y];
+			System.out.println(k);
+			}
+		else if(!i.contains("E")){
+			if(ExtraSheet[x-1][y].equals("")) {
+				String Y = AtoB(y);
+				String k = Y+x+" = "+"<empty>";
+				System.out.println(k);	
+			}
+			else {
+			String Y = AtoB(y);
+			String k = Y+x+" = "+ExtraSheet[x-1][y];
+			System.out.println(k);
+			}}
+		else {
+			System.out.println("Critical Error");
+		}
+	}
+	public static String AtoB(int Let) {
+		if(Let == 0) {
+			return "A";
+		}
+		else if(Let == 1) {
+			return "B";
+		}
+		else if(Let == 2) {
+			return "C";
+		}
+		else if(Let == 3) {
+			return "D";
+		}
+		else if(Let == 4) {
+			return "E";
+		}
+		else if(Let == 5) {
+			return "F";
+		}
+		else if(Let == 6) {
+			return "G";
+		}
+		else {
+			System.out.println("Need Help?");
+			return "G";
+		}
+		
+		
 	}
 	//Sum/Avg stuff
 	public static String fluck(String l) {
@@ -52,6 +98,8 @@ public class Spreadsheet extends Operations{
 		int m = in.indexOf("m");
 		int das = in.indexOf("-");
 		int as = in.indexOf(")");
+		String jk = in.substring(m+2, as-1);
+		if(!(jk.length() > 7)) {
 		int X1 = AtoB(in.substring(m+1, m+2));
 		int Y1 = Integer.parseInt(in.substring(m+2, das));
 		int X2 = AtoB(in.substring(das+1, das+2));
@@ -70,11 +118,19 @@ public class Spreadsheet extends Operations{
 			}
 		}
 		return theSum;
+		}
+		else {
+			System.out.println("Error Found");
+			System.exit(0);
+			return 0;
+		}
 	}
 public static double avg(String in) {
 	int m = in.indexOf("g");
 	int das = in.indexOf("-");
 	int as = in.indexOf(")");
+	String jk = in.substring(m+2, as-1);
+	if(!(jk.length() > 7)) {
 	int X1 = AtoB(in.substring(m+1, m+2));
 	int Y1 = Integer.parseInt(in.substring(m+2, das));
 	int X2 = AtoB(in.substring(das+1, das+2));
@@ -99,11 +155,17 @@ public static double avg(String in) {
 	}
 		return (theAvg/div);
 	}
+	else {
+		System.out.println("Error Found");
+		System.exit(0);
+		return 0;
+	}
+	}
 	//Formulas
 	public static void Store(String j, int y, int x) {
 		if(Testing) {System.out.println("store");}
 		Formulas[x-1][y] = j;
-		System.out.println("jokks"+Formulas[x-1][y]);
+		if(Testing) {System.out.println("jokks"+Formulas[x-1][y]);}
 		apply();
 	}
 	public static void apply() {
@@ -111,9 +173,9 @@ public static double avg(String in) {
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 7; j++) {
 				if(Formulas[i][j].contains("A") || Formulas[i][j].contains("B") || Formulas[i][j].contains("C") || Formulas[i][j].contains("D") || Formulas[i][j].contains("E") || Formulas[i][j].contains("F") || Formulas[i][j].contains("G")) {//if it contains something
-					System.out.println("iner");
+					if(Testing) {System.out.println("iner");}
 					String gh = " ("+replacer(Formulas[i][j])+")";
-					System.out.println("gh"+gh);
+					if(Testing) {System.out.println("gh"+gh);}
 					double klo = UberSolve(gh);
 					MathSheet[i][j] = klo;
 					Sheet[i][j] = ""+klo;
@@ -138,19 +200,19 @@ public static double avg(String in) {
 								String p1 = formulas.substring(0, k);
 								String p2 = formulas.substring(k+3);
 								formulas = p1+MathSheet[9][j]+p2;
-								System.out.println("from"+formulas);
+								if(Testing) {System.out.println("from"+formulas);}
 							}
 							else {
 								String p1 = formulas.substring(0, k);
 								String p2 = formulas.substring(k+2);
 								formulas = p1+MathSheet[i][j]+p2;
-								System.out.println("from"+formulas);
+								if(Testing) {System.out.println("from"+formulas);}
 							}
 						}else{
 						String p1 = formulas.substring(0, k);
 						String p2 = formulas.substring(k+2);
 						formulas = p1+MathSheet[i][j]+p2;
-						System.out.println("from"+formulas);
+						if(Testing) {System.out.println("from"+formulas);}
 						}
 					}
 				}
@@ -221,6 +283,18 @@ public static double avg(String in) {
 			if(Testing) {System.out.println("Paras");}
 			String hl = Input.substring(3);
 			if(!hl.contains("A") && !hl.contains("B") && !hl.contains("C") && !hl.contains("D") && !hl.contains("E") && !hl.contains("F") && !hl.contains("G")) {
+				int dubs = Input.indexOf("(");
+				int dubs2 = Input.indexOf("(", dubs+1);
+				int clubs = Input.indexOf(")");
+				int clubs2 = Input.indexOf(")", dubs+1);
+				if((dubs != -1 )&&( dubs2!=-1)) {
+					System.out.println("Error Found");
+					return;
+				}
+				else if((clubs != -1 )&&(clubs2!=-1)) {
+					System.out.println("Error Found");
+					return;
+				}
 			double infor = Operate(Input, Sheet);
 			int X = AtoB(Input.substring(0, 1));
 			int Y = 7;
@@ -237,7 +311,7 @@ public static double avg(String in) {
 				if(Testing) {System.out.println("On tracks");}
 				int j = Input.indexOf("(")+1;
 				int k = Input.indexOf(")");
-				System.out.println(Input.substring(j, k));
+				if(Testing) {System.out.println(Input.substring(j, k));}
 				String kol = Input.substring(j, k);
 				int X = AtoB(Input.substring(0, 1));
 				int Y = 7;
@@ -281,7 +355,8 @@ public static double avg(String in) {
 			//System.out.println(X+" " +Y);
 			add(Y, X, word, 0);
 		}
-		else if(Input.length() > 5 && (Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) && !Input.contains("/") && !Input.contains("+") && !Input.contains("-") && !Input.contains("*")) {// C1 = 12.1
+		else if(Input.length() > 5 && (Input.substring(3, 4).equals("=") || Input.substring(4, 5).equals("=")) && !Input.contains("/") && !Input.contains("+") && !Input.contains("-") && !Input.contains("*")) {
+			// C1 = 12.1
 			String hl = Input.substring(3);
 			if(!hl.contains("A") || !hl.contains("B") || !hl.contains("C") || !hl.contains("D") || !hl.contains("E") || !hl.contains("F") || !hl.contains("G")) {
 			int Eqa = Input.indexOf("=");
@@ -297,6 +372,30 @@ public static double avg(String in) {
 			else {
 				Y = 10;
 			}
+			if(!(Input.substring(Eqa+2).contains("0") || Input.substring(Eqa+2).contains("1") || Input.substring(Eqa+2).contains("2") || 
+					Input.substring(Eqa+2).contains("3") || Input.substring(Eqa+2).contains("4") || 
+					Input.substring(Eqa+2).contains("5") || Input.substring(Eqa+2).contains("6") || Input.substring(Eqa+2).contains("7")
+					 || Input.substring(Eqa+2).contains("8") || Input.substring(Eqa+2).contains("9"))) {
+				System.out.println("Error Found");
+				return;
+			}
+			String gforce = Input.substring(2);
+			String abc = "abcdefghijklmnopqrstuvwxyz";
+			for(int a = 0; a < 26; a++) {
+				String k = abc.substring(a, a+1);
+				if(gforce.contains(k)) {
+					System.out.println("Error Found");
+					return;
+				}
+			}
+			String abcs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			for(int a = 0; a < 26; a++) {
+				String k = abcs.substring(a, a+1);
+				if(gforce.contains(k)) {
+					System.out.println("Error Found");
+					return;
+				}
+			}
 			double inf = Double.parseDouble(Input.substring(Eqa+2));
 			String in = Input.substring(Eqa+2);
 			//System.out.println("PICK EM");
@@ -307,6 +406,7 @@ public static double avg(String in) {
 				if(Testing) {System.out.println("somehow");}
 			}
 			else {
+				System.out.println("Error Found");
 				return;
 			}
 		}
@@ -317,11 +417,12 @@ public static double avg(String in) {
 	}
 	//RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT RECIEVE INPUT
 	public static void clear(int X, int Y) {
-		Sheet[X][Y] = "            ";
-		ExtraSheet[X][Y] = "";
-		MathSheet[X][Y] = 0;
-		Formulas[X][Y] = "";
-		Altered[X][Y] = "";
+		System.out.println("Clearing");
+		Sheet[X-1][Y] = "            ";
+		ExtraSheet[X-1][Y] = "";
+		MathSheet[X-1][Y] = 0;
+		Formulas[X-1][Y] = "";
+		Altered[X-1][Y] = "";
 	}
 	public static void add(int X, int Y, String info, double GoodMath) {
 		if(Testing) {System.out.println("infor"+info);}

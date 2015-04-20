@@ -47,7 +47,7 @@ public class MenuState extends GameState {
 		g.setFont(font);
 		for(int i = 0; i < Options.length; i++) {
 			if(i == currentChoice) {
-				g.setColor(Color.BLACK);
+				g.setColor(Color.BLACK)s;
 			}
 			else {
 				g.setColor(Color.RED);
