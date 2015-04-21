@@ -1,0 +1,48 @@
+package Warmups;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class idontwanttobehere {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Integer>numbers = new ArrayList<Integer>();
+		
+		numbers.add(1);
+		numbers.add(4);
+		numbers.add(2);
+		numbers.add(3);
+		numbers.add(7);
+		numbers.add(-1);
+		
+		System.out.println(numbers);
+		fart(numbers);
+		System.out.println(numbers);
+		
+		String abc = "A";
+		String xyz = "1";
+		System.out.println(abc.compareTo(xyz));
+		
+	}
+
+	public static void fart (ArrayList<Integer>numbers){
+		
+		for(int i = 0;i<numbers.size();i++){
+			
+			if(numbers.get(i)%2==0){
+				int temp = numbers.get(i);
+				numbers.remove(i);
+				numbers.add(0,temp);
+			}
+			
+			if(numbers.get(i)<0){
+				numbers.remove(i);
+				i--;
+			}
+		
+		}
+		
+	}
+	
+}

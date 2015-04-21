@@ -48,7 +48,11 @@ private int[] List;
 		for(int k : Ev) {
 			if(m < k) {
 				m = k;
+<<<<<<< HEAD
+			}
+=======
 			} 
+>>>>>>> origin/master
 		}
 		return m;
 	}

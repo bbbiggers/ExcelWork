@@ -6,7 +6,7 @@ public class removeEvens {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ArrayList<Integer>numbers = new ArrayList<Integer>();
+	ArrayList<Integer>numbers = new ArrayList<Integer>();
 	numbers.add(2);
 	numbers.add(4);
 	numbers.add(6);
