@@ -14,19 +14,9 @@ public BerryBush(ArrayList<Berry>bt,String c,int b,int l){
 }
 
 public void growBerry(){
-int x = (int)(Math.random()*10)+1;
+int x = ((int)Math.random()*10)+1;
 BerryType.add(new Berry(color,x));
 	
-}
-
-public void growBerry(int t){
-int x = (int)(Math.random()*10)+1;
-if(t>=1&&t<=10){
-BerryType.add(new Berry(color,t));
-}else{
-BerryType.add(new Berry(color,x));
-}
-
 }
 
 public String getColor(){
@@ -42,12 +32,5 @@ public void growBigger(){
 	growBerry();
 }
 
-public String toString(){
-	String s = "";
-	for (Berry b : BerryType){
-		s = s+("The "+color+" berry is a "+b+" on tastiness scale.\n");
-	}
-	return s;
-}
 
 }

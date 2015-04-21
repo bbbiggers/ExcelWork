@@ -3,7 +3,11 @@ package FrogClass;
 public class BerryTester {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
 		//[] prices = new double[10];
+		System.out.println((int)Math.random()*11);
+		
 		
 	}
 

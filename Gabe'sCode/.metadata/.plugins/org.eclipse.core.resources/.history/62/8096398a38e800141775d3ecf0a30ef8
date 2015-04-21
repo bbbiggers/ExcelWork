@@ -1,0 +1,32 @@
+package FrogClass;
+
+import java.util.ArrayList;
+
+public class BerryBush extends Bush{
+
+private ArrayList<Berry>BerryType;
+private String color;
+
+public BerryBush(ArrayList<Berry>bt,String c,int b,int l){
+	super(b,l);
+	BerryType = bt;
+	color = c;
+}
+
+public void growBerry(){
+	
+BerryType.add(new Berry(color,(int)Math.random()*10));
+	
+}
+
+public int getNumBerries(){
+	return BerryType.size();
+}
+
+public void growBigger(){
+	super.growBigger();
+	growBerry();
+}
+
+
+}
