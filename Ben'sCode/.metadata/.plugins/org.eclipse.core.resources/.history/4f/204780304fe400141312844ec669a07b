@@ -1,9 +1,0 @@
-package warmUp;
-
-public class MazeSolver {
-
-	String[][] Ar;
-	public MazeSolver(String[][] Ar) {
-		Ar = this.Ar;
-	}
-}
