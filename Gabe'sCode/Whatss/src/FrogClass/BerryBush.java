@@ -26,7 +26,11 @@ BerryType.add(new Berry(color,t));
 }else{
 BerryType.add(new Berry(color,x));
 }
+}
 
+public void growBerry(String s){
+int x = (int)(Math.random()*10)+1;
+BerryType.add(new MagicBerry(s,color,x));
 }
 
 public String getColor(){
@@ -45,7 +49,7 @@ public void growBigger(){
 public String toString(){
 	String s = "";
 	for (Berry b : BerryType){
-		s = s+("The "+color+" berry is a "+b+" on tastiness scale.\n");
+		s = s+(b+"\n");
 	}
 	return s;
 }
