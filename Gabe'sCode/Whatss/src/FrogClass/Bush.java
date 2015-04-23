@@ -14,6 +14,13 @@ numLeaves = l;
 	
 }
 
+public Bush(){
+
+numBranches = 10;
+numLeaves = 100;
+	
+}
+
 public int getBranches(){
 	return numBranches;
 }
