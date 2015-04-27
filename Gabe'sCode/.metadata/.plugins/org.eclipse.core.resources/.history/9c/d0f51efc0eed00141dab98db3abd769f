@@ -1,6 +1,6 @@
-package FrogClass;
+package Warmups;
 
-public class BerryTester {
+public class FinalQuizQuestion {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

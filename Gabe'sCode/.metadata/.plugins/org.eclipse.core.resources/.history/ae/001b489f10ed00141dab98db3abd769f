@@ -1,0 +1,28 @@
+package Warmups;
+
+import java.util.ArrayList;
+
+public class FinalQuizQuestion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String s = "America";
+		System.out.println(fun(s));
+		
+	}
+		public static String fun(String s){
+			ArrayList<String>list = new ArrayList<String>();
+			
+			for(int i = 0;i<s.length();i++){
+				list.add(s.substring(i,i+1));
+			}
+			
+			return list.get(3)+list.get(6)+list.get(4)+list.get(1)+list.get(4)+list.get(3);
+		}
+		
+		
+		
+	
+
+}
