@@ -9,7 +9,7 @@ public MagicBerry(String s,String c,int t){
 	magicProperty = s;
 }
 public String toString(){
-return ("The "+getColor()+" berry is a "+getTastiness()+" on tastiness scale and has the Magic Property: "+magicProperty+".");
+return ("The "+this.getColor()+" berry is a "+this.getTastiness()+" on tastiness scale and has the Magic Property: "+magicProperty+".");
 }
 
 }
