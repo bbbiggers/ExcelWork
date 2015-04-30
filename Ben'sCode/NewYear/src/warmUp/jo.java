@@ -1,5 +1,5 @@
 package warmUp;
 
-public class Bush {
+public class jo {
 
 }
