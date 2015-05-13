@@ -1,0 +1,21 @@
+package Warmups;
+
+public class doubleMethods {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println(cats(4));
+		
+	}
+
+	
+	
+	public static double cats(int x){
+	return (double)(x/3);
+	}
+	
+	
+	
+	
+}

@@ -19,7 +19,7 @@ public class BEPOSITIVE {
 	public static void remove(ArrayList<String>words){
 		
 		for(String s : words){
-			if(!s.contains("no")||!s.contains("No")){
+			if(!(s.contains("no")||s.contains("No"))){
 				System.out.println(s);
 			}
 			

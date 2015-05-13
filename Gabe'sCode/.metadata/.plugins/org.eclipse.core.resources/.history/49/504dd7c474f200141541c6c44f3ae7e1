@@ -1,0 +1,29 @@
+package Warmups;
+
+public class doubleMethods {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println(cats(4));
+		System.out.println( 1 + 5 + "X" + 5 + 1);
+		System.out.println(multiply(3,4));
+	}
+
+	
+	
+	public static double cats(int x){
+	double newX = Math.PI;
+	return (newX/3.0);
+	}
+	
+	public static String dogs(int x){
+		double fuasdx = (double)(x);
+		return ""+fuasdx/3;
+	}
+	
+	public static double multiply(double a,double b){
+		return a*b;
+		}
+
+}
